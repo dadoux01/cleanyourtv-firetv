@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Point d'entrée Fire TV : enchaîne les outils de tools/ avec les garde-fous propres à Fire OS.
 #
-# Usage : TV_HOST=192.168.1.50 ./firetv.sh <commande> [liste]
+# Usage : TV_HOST=192.168.1.50 ./firetv.sh <commande> [liste]   (commandes françaises ou anglaises : probe, backup, apply, check, fix, restore, close)
 #   sonde       se connecte, vérifie que c'est une Fire TV et dit quelle liste correspond
 #   sauvegarde  écrit l'état actuel (paquets, désactivés, getprop, réglages) dans backup/
 #   appliquer   désactive les paquets de la liste (celle du modèle si aucune n'est donnée)
@@ -47,27 +47,27 @@ choisir_liste() {
 }
 
 case "$CMD" in
-  sonde)
+  sonde|probe)
     echo "Fire TV : $modele"
     echo "Fire OS / Android : $(tv 'getprop ro.build.version.name') / $(tv 'getprop ro.build.version.release') (SDK $(tv 'getprop ro.build.version.sdk'))"
     echo "ADB sécurisé : $(tv 'getprop ro.adb.secure')   (1 = invite « Autoriser » sur la TV)"
     if l="$(liste_pour_modele "$modele")"; then echo "Liste adaptée : $l"; else echo "Aucune liste testée pour ce modèle."; fi ;;
-  sauvegarde)
+  sauvegarde|backup)
     d="backup/$(date +%Y%m%d-%H%M%S)"; mkdir -p "$d"
     tv 'pm list packages -f' > "$d/paquets.txt"
     tv 'pm list packages -d --user 0' > "$d/desactives.txt"
     tv 'getprop' > "$d/getprop.txt"
     tv 'settings list global' > "$d/reglages-global.txt"
     echo "Sauvegarde écrite dans $d (ignorée par git, elle contient des identifiants de l'appareil)." ;;
-  appliquer)
+  appliquer|apply)
     L="$(choisir_liste "${1:-}")"
     "$0" sauvegarde
     echo "Application de $L sur $modele"
     # L'en-tête de la liste précise ce qui reste volontairement actif (Alexa, Prime Video, Silk, OTA).
     tools/disable.sh "$L" ;;
-  verifier)  "$PY" -I tools/check.py "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
-  corriger)  "$PY" -I tools/check.py --fix "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
-  restaurer) tools/restore.sh "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
-  fermer)    "$PY" -I tools/adb-closed.py "$TV_HOST" ;;
+  verifier|check)  "$PY" -I tools/check.py "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
+  corriger|fix)  "$PY" -I tools/check.py --fix "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
+  restaurer|restore) tools/restore.sh "$(choisir_liste "${1:-}")" com.amazon.tv.launcher ;;
+  fermer|close)    "$PY" -I tools/adb-closed.py "$TV_HOST" ;;
   *) echo "commande inconnue : $CMD" >&2; exit 2 ;;
 esac

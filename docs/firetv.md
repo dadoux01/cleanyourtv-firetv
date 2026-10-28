@@ -1,5 +1,7 @@
 # Fire TV : particularités de Fire OS
 
+🇬🇧 [English](firetv.en.md) · 🇫🇷 Français
+
 ## Modèles et listes
 
 | Appareil | Code modèle | Fire OS / Android | Liste | Launcher |
@@ -52,6 +54,12 @@ gardent en commentaire. Si `pm disable-user` est refusé pour **tous** les paque
 
 Le garde-fou HDMI retient ce paquet, car il répond à l'ouverture d'une chaîne. Un stick n'a ni tuner ni entrée HDMI :
 si vous voulez le désactiver, lancez `HANDLERS_ALLOW=1 ./firetv.sh appliquer`.
+
+## Paquets que Fire OS réactive
+
+Fire OS réactive certains paquets à chaque démarrage (par exemple `com.amazon.systemnotices` sur le Stick 4K 2023, et les
+assistants Alexa listés dans l'en-tête de la liste du 4K Max). Ils sont en commentaire dans les listes : les
+désactiver à nouveau ne ferait que signaler un écart après chaque redémarrage.
 
 ## Après une mise à jour d'Amazon
 

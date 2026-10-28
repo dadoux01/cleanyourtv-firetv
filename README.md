@@ -1,115 +1,124 @@
-# CleanYourTV pour Fire TV
+# CleanYourTV for Fire TV
 
-Adaptation française de [Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv) (licence MIT) pour les
-**Fire TV Stick 4K et 4K Max** : débridage réversible par Wi-Fi, sans root, sans rien désinstaller.
+🇬🇧 English · 🇫🇷 [Français](README.fr.md)
 
-> **Avertissement.** Ce projet désactive des paquets système de la Fire TV (réversible : `./firetv.sh restaurer`).
-> Utilisez-le à vos risques, après avoir lu `docs/firetv.md`. Testé uniquement sur un Fire TV Stick 4K 2023
-> (AFTKM, Fire OS 8.1.8.5). La ligne « Désinstaller » du launcher et la bibliothèque d'applications n'ont pas été testées.
-> Dérivé de [Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv) (MIT).
+A Fire TV adaptation of [Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv) (MIT) for the
+**Fire TV Stick 4K and 4K Max**: reversible debloating over Wi-Fi, no root, nothing uninstalled, plus an optional
+Apple TV-style launcher with in-launcher app management.
 
-## Ce qui change par rapport au dépôt d'origine
+> **Warning.** This project disables Fire OS system packages (reversible: `./firetv.sh restore`). Use it at your own
+> risk, after reading [docs/firetv.en.md](docs/firetv.en.md). Tested only on a Fire TV Stick 4K 2023 (AFTKM, Fire OS
+> 8.1.8.5). The launcher's "Uninstall" row and the app library menu are untested.
+> Derived from [Gathin23/cleanyourtv](https://github.com/Gathin23/cleanyourtv) (MIT).
 
-| Sujet | Android TV / Google TV (amont) | Fire TV (ici) |
+## What differs from the upstream project
+
+| Topic | Android TV / Google TV (upstream) | Fire TV (this repo) |
 |---|---|---|
-| Écran d'accueil | Remplaçable par le launcher | **Non** : `com.amazon.tv.launcher` est protégé par Fire OS |
-| Launcher | Devient l'accueil | Installé comme **application ordinaire** (`launcher/install-firetv.sh`) |
-| Launcher de repli par défaut | `com.google.android.tvlauncher` | `com.amazon.tv.launcher` |
-| Paquets jamais désactivés | Android, SystemUI, Settings… | Idem, plus l'accueil Amazon, `tv.settings*`, `tv.ime`, `tv.oobe`, `venezia` (Appstore) et les mises à jour OTA |
-| Listes de paquets | Une par modèle | `listes/` : Stick 4K 2018, 4K Max 2021, Stick 4K 2023, Lite 2020 |
-| Point d'entrée | `tools/*.sh` | `./firetv.sh`, qui choisit la liste d'après le code modèle |
+| Home screen | Replaced by the launcher | **Cannot be replaced**: `com.amazon.tv.launcher` is protected by Fire OS |
+| Launcher | Becomes Home | Installed as a **regular app** (`launcher/install-firetv.sh`), optionally redirected to from Home |
+| Fallback launcher | `com.google.android.tvlauncher` | `com.amazon.tv.launcher` |
+| Never disabled | Android, SystemUI, Settings… | Same, plus Amazon Home, `tv.settings*`, `tv.ime`, `tv.oobe`, `venezia` (Appstore) and OTA updates |
+| Package lists | One per TV model | `listes/`: Stick 4K 2018, 4K Max 2021, Stick 4K 2023, Lite 2020 |
+| Entry point | `tools/*.sh` | `./firetv.sh`, which picks the list from the model code |
 
-Le détail est dans [docs/firetv.md](docs/firetv.md).
+Details: [docs/firetv.en.md](docs/firetv.en.md).
 
-## Démarrage
+## Getting started
 
-1. **Activer ADB sur la Fire TV** : *Paramètres > Ma Fire TV > À propos*, cliquer 7 fois sur le nom de l'appareil,
-   puis *Options pour les développeurs > Débogage ADB* (et *Applications de sources inconnues* si besoin).
-2. **Noter l'adresse IP** : *Paramètres > Ma Fire TV > À propos > Réseau*. L'ordinateur doit être sur le même Wi-Fi.
-3. **Installer le client ADB Python** (aucun binaire `adb` requis) :
+1. **Enable ADB on the Fire TV**: *Settings > My Fire TV > About*, click the device name 7 times, then
+   *Developer options > ADB debugging*.
+2. **Find the IP address**: *Settings > My Fire TV > About > Network*. The computer must be on the same Wi-Fi.
+3. **Install the Python ADB client** (no `adb` binary needed):
    ```bash
    python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt
    ```
-4. **Sonde**, puis acceptez l'invite « Autoriser le débogage USB » sur la TV :
+4. **Probe**, then accept the "Allow USB debugging" prompt on the TV:
    ```bash
-   TV_HOST=192.168.1.50 ./firetv.sh sonde
+   TV_HOST=192.168.1.50 ./firetv.sh probe
    ```
-5. **Appliquer** : sauvegarde automatique dans `backup/` et `~/.cleanyourtv/`, puis désactivation par petits lots.
+5. **Apply**: automatic backup to `backup/` and `~/.cleanyourtv/`, then packages are disabled in batches.
    ```bash
-   TV_HOST=192.168.1.50 ./firetv.sh appliquer
+   TV_HOST=192.168.1.50 ./firetv.sh apply
    ```
-6. **Redémarrer** la Fire TV et vérifier que l'accueil, Prime Video, Netflix et la recherche vocale fonctionnent.
+6. **Reboot** the Fire TV and check that Home, Netflix, Prime Video and voice search still work.
 
-## Commandes
+## Commands
 
-| Commande | Rôle |
+Commands have French and English names; the messages the script prints are in French.
+
+| Command (EN / FR) | What it does |
 |---|---|
-| `./firetv.sh sonde` | Modèle, version de Fire OS, liste correspondante |
-| `./firetv.sh sauvegarde` | Paquets, désactivés, `getprop` et réglages dans `backup/` |
-| `./firetv.sh appliquer [liste]` | Débridage (`pm disable-user --user 0`) |
-| `./firetv.sh verifier [liste]` | Écart avec la liste après une mise à jour Amazon (code 1 s'il y en a) |
-| `./firetv.sh corriger [liste]` | Re-désactive ce que la mise à jour a réactivé |
-| `./firetv.sh restaurer [liste]` | Revient à l'état d'avant |
-| `./firetv.sh fermer` | Vérifie que le port ADB 5555 est fermé |
+| `./firetv.sh probe` / `sonde` | Model, Fire OS version, matching list |
+| `./firetv.sh backup` / `sauvegarde` | Packages, disabled packages, `getprop` and settings into `backup/` |
+| `./firetv.sh apply [list]` / `appliquer` | Debloat (`pm disable-user --user 0`) |
+| `./firetv.sh check [list]` / `verifier` | Drift from the list after an Amazon update (exit code 1 if any) |
+| `./firetv.sh fix [list]` / `corriger` | Re-disable what an update turned back on |
+| `./firetv.sh restore [list]` / `restaurer` | Put everything back as it was |
+| `./firetv.sh close` / `fermer` | Check that ADB port 5555 is closed |
 
-Autres outils dans `tools/` : `tv.py` (shell et captures d'écran), `privacy.py` (audit vie privée), `b64push.py`,
-`adb-closed.py`, `recovery.py`, `theme.sh` et les outils de mesure.
+Other tools in `tools/`: `tv.py` (shell and screenshots), `privacy.py` (privacy audit), `b64push.py`,
+`adb-closed.py`, `recovery.py`, `theme.sh` and the benchmarking tools.
 
-## Launcher et thème Fire TV
+## Launcher and Fire TV theme
 
 ```bash
-export JAVA_HOME=~/dev-android/jdk ANDROID_HOME=~/dev-android/sdk PATH=~/dev-android/jdk/bin:$PATH
-TV_HOST=192.168.1.50 launcher/install-firetv.sh      # compile et installe (APK de 550 Ko)
-TV_HOST=192.168.1.50 tools/theme.sh themes/firetv    # pousse le thème
-TV_HOST=192.168.1.50 tools/tv.py 'am start -n com.gathin.tvhome/.MainActivity'   # l'ouvre
-TV_HOST=192.168.1.50 tools/theme.sh --reset          # retire le thème
+# Requires JDK 17 and the Android SDK (platform 34, build-tools 34.0.0): set JAVA_HOME and ANDROID_HOME
+TV_HOST=192.168.1.50 launcher/install-firetv.sh      # build and install (about 550 KB APK)
+TV_HOST=192.168.1.50 tools/theme.sh themes/firetv    # push the theme
+TV_HOST=192.168.1.50 tools/tv.py 'am start -n com.gathin.tvhome/.MainActivity'   # open it
+TV_HOST=192.168.1.50 tools/theme.sh --reset          # remove the theme
 ```
 
-Le thème `themes/firetv` part de `glass` : dock vitré à six colonnes (Netflix, YouTube, Disney+, Canal+, Stremio,
-Jellyfin), bouton Entrées masqué (un stick n'a pas de HDMI) et applications utilitaires cachées de l'accueil mais
-présentes dans la bibliothèque d'applications. Le launcher a la catégorie HOME à priorité 0 : l'accueil Amazon
-(priorité 950) reste prioritaire.
+`themes/firetv` starts from `glass`: a six-column frosted dock (Netflix, YouTube, Disney+, Canal+, Stremio, Jellyfin),
+no Inputs button (a stick has no HDMI input) and utility apps hidden from Home but still in the app library. Edit
+`dock_apps` and `hidden_apps` in `themes/firetv/config.json` for your own apps. The launcher declares the HOME
+category at priority 0, so Amazon Home (priority 950) stays the system Home.
 
-## Remplacer un accueil tiers par le launcher
+## Making the launcher your Home
 
-Le thème `themes/firetv` met `stock_home_redirect` sur `com.amazon.tv.launcher` : quand l'accueil Amazon passe au
-premier plan, `HomeKeyService` ramène le launcher. Le service est activé ainsi :
+`themes/firetv` sets `stock_home_redirect` to `com.amazon.tv.launcher`: when Amazon Home comes to the front,
+`HomeKeyService` brings the launcher back. Enable the service like this:
 
 ```bash
 tools/tv.py 'settings put secure enabled_accessibility_services com.gathin.tvhome/.HomeKeyService; settings put secure accessibility_enabled 1'
 tools/tv.py 'settings put secure screensaver_components com.gathin.tvhome/.ClockDream'
 ```
 
-Un ancien accueil tiers (service d'accessibilité de redirection, économiseur d'écran) se désactive avec `pm disable-user --user 0 <paquet>` ; notez avant ses valeurs de `enabled_accessibility_services` et `screensaver_components` pour pouvoir revenir en arrière.
+Android switches accessibility services off when an app is reinstalled, so run the first command again after each
+install. To replace another third-party home app, disable it with `pm disable-user --user 0 <package>` and note
+beforehand its values for `enabled_accessibility_services` and `screensaver_components`, so you can go back.
 
-## Gérer les applications depuis le launcher
+## Managing apps from the launcher
 
-Touche **Menu** de la télécommande (ou appui long sur OK) sur une tuile, activée par `tile_menu` dans le thème :
+Press the remote's **Menu** key (or long-press OK) on a tile; enabled by `tile_menu` in the theme:
 
-| Ligne | Effet |
+| Row | Effect |
 |---|---|
-| Remplacer par une autre appli / Ajouter au dock | Change les applications du dock |
-| Déplacer, Retirer de l'accueil | Réorganise l'accueil (la bibliothèque d'applications les remet) |
-| Infos, cache et données | Page Fire OS de l'appli : Effacer le cache, Effacer les données, Forcer l'arrêt |
-| Rechercher une mise à jour | Fiche de l'appli dans l'Appstore Amazon (`AppActions.java`) |
-| Désinstaller | Désinstallateur système, avec confirmation ; absent pour les applis système |
+| Replace with another app / Add to dock | Change the dock's apps |
+| Move, Remove from Home | Rearrange Home (the app library adds them back) |
+| App info, cache and data | The Fire OS page for the app: Clear cache, Clear data, Force stop |
+| Check for update | The app's page in the Amazon Appstore (`AppActions.java`) |
+| Uninstall | The system uninstaller, with confirmation; not offered for system apps |
 
-Le launcher n'a toujours pas la permission INTERNET : « Rechercher une mise à jour » ouvre l'Appstore, il ne compare
-pas les versions lui-même. Les applications installées hors Appstore (Stremio, Jellyfin, Aptoide…) s'y affichent
-sans mise à jour. La permission `REQUEST_DELETE_PACKAGES` a été ajoutée pour la désinstallation.
+The launcher still has no INTERNET permission: "Check for update" opens the Appstore, it does not compare versions
+itself. Apps installed outside the Appstore (Stremio, Jellyfin, Aptoide…) show no update there. The
+`REQUEST_DELETE_PACKAGES` permission was added for uninstalling. Menu labels are translated into the launcher's
+languages only where upstream had them; the new rows are in English and French.
 
-## Sécurité
+## Safety
 
-- **Désactiver, jamais désinstaller.** Aucun `pm uninstall`, aucun root.
-- Les scripts **refusent** toute liste contenant un paquet vital (Android, accueil Amazon, Paramètres, clavier, Appstore, OTA).
-- Laissez les mises à jour OTA actives. Elles réactivent parfois des paquets : lancez `verifier` ensuite.
-- Après usage, coupez le débogage ADB sur la TV, redémarrez, puis `./firetv.sh fermer`. Le port 5555 est en clair.
+- **Disable, never uninstall.** No `pm uninstall`, no root.
+- The scripts **refuse** any list that contains a vital package (Android, Amazon Home, Settings, keyboard, Appstore, OTA).
+- Leave OTA updates enabled. They sometimes turn packages back on: run `check` afterwards.
+- When you are done, turn ADB debugging off on the TV, reboot, then `./firetv.sh close`. Port 5555 is plaintext.
 
-## Limites connues
+## Known limits
 
-- Le **Stick 4K de 2018** est en Android 7.1.2 (SDK 25) : le débridage fonctionne, **pas le launcher** (minSdk 26).
-- Sur un stick, `com.amazon.tv.livetv` est retenu par le garde-fou HDMI. Voir [docs/firetv.md](docs/firetv.md).
-- Le launcher est compilé (JDK 17 et SDK dans `~/dev-android`) et essayé sur un Stick 4K 2023 (AFTKM, Fire OS 8.1).
-- `addons/` n'est pas repris : ces modules supposent le launcher comme accueil.
+- The **2018 Stick 4K** runs Android 7.1.2 (SDK 25): debloating works, the **launcher does not** (minSdk 26).
+- On a stick, `com.amazon.tv.livetv` is held back by the HDMI guard. See [docs/firetv.en.md](docs/firetv.en.md).
+- The launcher has only been tried on a Stick 4K 2023 (AFTKM, Fire OS 8.1).
+- `addons/` is not ported: those modules assume the launcher is Home.
+- `firetv.sh` prints its messages in French, and the other guides in `docs/` are upstream's English texts.
 
-Licence MIT, voir `LICENSE`. Le dépôt d'origine est cloné dans `upstream/` pour référence.
+MIT licence, see `LICENSE`.
