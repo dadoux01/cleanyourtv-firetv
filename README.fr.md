@@ -100,6 +100,13 @@ Le launcher n'a toujours pas la permission INTERNET : « Rechercher une mise à 
 pas les versions lui-même. Les applications installées hors Appstore (Stremio, Jellyfin, Aptoide…) s'y affichent
 sans mise à jour. La permission `REQUEST_DELETE_PACKAGES` a été ajoutée pour la désinstallation.
 
+## Langues
+
+Le launcher suit la langue de la TV : il est complet en français et en anglais (les 50 chaînes qui manquaient en français
+sont traduites). Les autres langues gardent les traductions du dépôt d'origine, avec repli sur l'anglais pour les
+nouvelles lignes. Les scripts de `tools/` et les guides de `docs/` autres que `firetv*.md` viennent du dépôt d'origine,
+en anglais seulement ; les listes de `listes/` ont des en-têtes en anglais. Voir [listes/README.md](listes/README.md).
+
 ## Sécurité
 
 - **Désactiver, jamais désinstaller.** Aucun `pm uninstall`, aucun root.
@@ -114,4 +121,4 @@ sans mise à jour. La permission `REQUEST_DELETE_PACKAGES` a été ajoutée pour
 - Le launcher n'a été essayé que sur un Stick 4K 2023 (AFTKM, Fire OS 8.1).
 - `addons/` n'est pas repris : ces modules supposent le launcher comme accueil.
 
-Licence MIT, voir `LICENSE`. Les commandes de `./firetv.sh` existent aussi en anglais : `probe`, `backup`, `apply`, `check`, `fix`, `restore`, `close`.
+Licence MIT, voir `LICENSE`. Les commandes de `./firetv.sh` existent aussi en anglais (`probe`, `backup`, `apply`, `check`, `fix`, `restore`, `close`) et ses messages suivent la langue du système (`FIRETV_LANG=en|fr` pour forcer).

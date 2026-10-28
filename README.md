@@ -45,7 +45,7 @@ Details: [docs/firetv.en.md](docs/firetv.en.md).
 
 ## Commands
 
-Commands have French and English names; the messages the script prints are in French.
+Commands have English and French names. Messages follow your system language (`FIRETV_LANG=en|fr` forces one).
 
 | Command (EN / FR) | What it does |
 |---|---|
@@ -103,8 +103,9 @@ Press the remote's **Menu** key (or long-press OK) on a tile; enabled by `tile_m
 
 The launcher still has no INTERNET permission: "Check for update" opens the Appstore, it does not compare versions
 itself. Apps installed outside the Appstore (Stremio, Jellyfin, Aptoide…) show no update there. The
-`REQUEST_DELETE_PACKAGES` permission was added for uninstalling. Menu labels are translated into the launcher's
-languages only where upstream had them; the new rows are in English and French.
+`REQUEST_DELETE_PACKAGES` permission was added for uninstalling. The launcher follows the TV's language: it is
+complete in English and French (the 50 strings upstream lacked in French are translated); other languages keep
+upstream's translations and fall back to English for the new rows.
 
 ## Safety
 
@@ -119,6 +120,7 @@ languages only where upstream had them; the new rows are in English and French.
 - On a stick, `com.amazon.tv.livetv` is held back by the HDMI guard. See [docs/firetv.en.md](docs/firetv.en.md).
 - The launcher has only been tried on a Stick 4K 2023 (AFTKM, Fire OS 8.1).
 - `addons/` is not ported: those modules assume the launcher is Home.
-- `firetv.sh` prints its messages in French, and the other guides in `docs/` are upstream's English texts.
+- The scripts under `tools/` and the guides in `docs/` other than `firetv*.md` are upstream's, in English only; the
+  package lists in `listes/` have English headers. See [listes/README.md](listes/README.md).
 
 MIT licence, see `LICENSE`.
