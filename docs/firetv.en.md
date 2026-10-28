@@ -11,7 +11,7 @@
 | Fire TV Stick 4K (2023) and 4K Plus | `AFTKM`, `AFTMA08C15` | 8 / 11 (SDK 30) | `listes/amazon-fire-tv-stick-4k-2023` | Yes, as an app |
 | Fire TV Stick Lite (2020) | `AFTSS` | 7 / 9 | `listes/amazon-fire-tv-stick-lite-2020` | Yes, as an app |
 
-`./firetv.sh probe` reads the model code and names the list. A model missing from this table is refused rather than
+`python3 firetv.py probe` reads the model code and names the list. A model missing from this table is refused rather than
 guessed: pass the list as an argument.
 
 ## Enabling ADB
@@ -28,8 +28,8 @@ guessed: pass the list as an argument.
 "Cannot disable a protected package". The upstream approach, which disables the stock launcher and calls
 `set-home-activity`, therefore does not apply. Here:
 
-- `firetv.sh` never touches Home;
-- `launcher/install-firetv.sh` installs the launcher as an app, visible under *Your apps*;
+- `firetv.py` never touches Home;
+- `firetv.py install-launcher` installs the launcher as an app, visible under *Your apps*;
 - the launcher can still take over visually: with `stock_home_redirect` and its accessibility service
   (`HomeKeyService`), it is brought back to the front whenever Amazon Home appears (see the README);
 - another community route is a third-party app that watches the Home press (Launcher Manager Mini with Projectivy,
@@ -55,7 +55,7 @@ commented out. If `pm disable-user` is refused for **every** package, stop: do n
 ## A stick has no tuner: `com.amazon.tv.livetv`
 
 The HDMI guard holds this package back because it answers the open-a-channel intent. A stick has no tuner or HDMI
-input: if you want it disabled, run `HANDLERS_ALLOW=1 ./firetv.sh apply`.
+input: if you want it disabled, run `HANDLERS_ALLOW=1 python3 firetv.py --host <ip> apply` (Windows: set `$env:HANDLERS_ALLOW=1` first).
 
 ## Packages Fire OS turns back on
 
@@ -65,11 +65,11 @@ would only report drift after each reboot.
 
 ## After an Amazon update
 
-An update can turn packages back on. Run `./firetv.sh check` (exit 0: nothing to do, 1: drift), then
-`./firetv.sh fix`. To automate it, a weekly cron job on the exit code is enough. An update can also switch off the
+An update can turn packages back on. Run `python3 firetv.py check` (exit 0: nothing to do, 1: drift), then
+`python3 firetv.py fix`. To automate it, a weekly cron job on the exit code is enough. An update can also switch off the
 launcher's accessibility service: if the Home button opens Amazon Home again, enable the service again.
 
 ## Restoring
 
-`./firetv.sh restore` replays the state recorded before `apply` (packages that were already disabled stay
+`python3 firetv.py restore` replays the state recorded before `apply` (packages that were already disabled stay
 disabled). As a last resort: *Settings > My Fire TV > Reset to Factory Defaults*.

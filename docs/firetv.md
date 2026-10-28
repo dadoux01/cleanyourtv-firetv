@@ -11,7 +11,7 @@
 | Fire TV Stick 4K (2023) et 4K Plus | `AFTKM`, `AFTMA08C15` | 8 / 11 (SDK 30) | `listes/amazon-fire-tv-stick-4k-2023` | Oui, en application |
 | Fire TV Stick Lite (2020) | `AFTSS` | 7 / 9 | `listes/amazon-fire-tv-stick-lite-2020` | Oui, en application |
 
-`./firetv.sh sonde` lit le code modèle et désigne la liste. Le code d'un modèle absent de ce tableau est refusé
+`python3 firetv.py sonde` lit le code modèle et désigne la liste. Le code d'un modèle absent de ce tableau est refusé
 au lieu d'être deviné : passez la liste en argument.
 
 ## Activer ADB
@@ -28,8 +28,8 @@ au lieu d'être deviné : passez la liste en argument.
 « Cannot disable a protected package ». Le port amont, qui désactive le launcher d'origine puis fait appel à
 `set-home-activity`, ne s'applique donc pas. Ici :
 
-- `firetv.sh` ne touche jamais à l'accueil ;
-- `launcher/install-firetv.sh` installe le launcher comme application, visible dans *Vos applications* ;
+- `firetv.py` ne touche jamais à l'accueil ;
+- `firetv.py install-launcher` installe le launcher comme application, visible dans *Vos applications* ;
 - la voie communautaire pour un accueil personnalisé est une application tierce qui détecte l'appui sur Accueil
   (Launcher Manager Mini, avec Projectivy par exemple). Ce sont des sideloads tiers, qu'Amazon a déjà cassés par OTA :
   ils ne font pas partie de ce dépôt.
@@ -53,7 +53,7 @@ gardent en commentaire. Si `pm disable-user` est refusé pour **tous** les paque
 ## Stick sans tuner : `com.amazon.tv.livetv`
 
 Le garde-fou HDMI retient ce paquet, car il répond à l'ouverture d'une chaîne. Un stick n'a ni tuner ni entrée HDMI :
-si vous voulez le désactiver, lancez `HANDLERS_ALLOW=1 ./firetv.sh appliquer`.
+si vous voulez le désactiver, lancez `HANDLERS_ALLOW=1 python3 firetv.py --host <ip> appliquer` (Windows : `$env:HANDLERS_ALLOW=1` d'abord).
 
 ## Paquets que Fire OS réactive
 
@@ -63,10 +63,10 @@ désactiver à nouveau ne ferait que signaler un écart après chaque redémarra
 
 ## Après une mise à jour d'Amazon
 
-Une mise à jour peut réactiver des paquets. Lancez `./firetv.sh verifier` (code 0 : rien à faire, 1 : écart) puis
-`./firetv.sh corriger`. Pour automatiser, une tâche cron hebdomadaire sur le code de sortie suffit.
+Une mise à jour peut réactiver des paquets. Lancez `python3 firetv.py verifier` (code 0 : rien à faire, 1 : écart) puis
+`python3 firetv.py corriger`. Pour automatiser, une tâche cron hebdomadaire sur le code de sortie suffit.
 
 ## Restaurer
 
-`./firetv.sh restaurer` rejoue l'état enregistré avant `appliquer` (les paquets déjà désactivés le restent). En
+`python3 firetv.py restaurer` rejoue l'état enregistré avant `appliquer` (les paquets déjà désactivés le restent). En
 dernier recours : *Paramètres > Ma Fire TV > Réinitialiser aux paramètres d'usine*.

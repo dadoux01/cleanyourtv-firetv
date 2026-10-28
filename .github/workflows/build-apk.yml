@@ -1,0 +1,38 @@
+# Builds the launcher on every push and, for a tag like v1.0.0, attaches the APK and its SHA-256 to a GitHub release,
+# so users can run `python3 firetv.py install-launcher --release` without installing a JDK or the Android SDK.
+name: build-apk
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: android-actions/setup-android@v3
+      - name: Tests
+        run: python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt && tools/venv/bin/python -m unittest discover -s tests
+      - name: Build
+        working-directory: launcher
+        run: ./gradlew assembleRelease --no-daemon
+      - name: Name the APK and write its checksum
+        run: |
+          cp launcher/app/build/outputs/apk/release/app-release.apk cleanyourtv-firetv-launcher.apk
+          sha256sum cleanyourtv-firetv-launcher.apk > cleanyourtv-firetv-launcher.apk.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: launcher-apk
+          path: cleanyourtv-firetv-launcher.apk*
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            cleanyourtv-firetv-launcher.apk
+            cleanyourtv-firetv-launcher.apk.sha256
