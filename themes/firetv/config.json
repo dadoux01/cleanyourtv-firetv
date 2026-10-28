@@ -1,0 +1,35 @@
+{
+  "dock_apps": [
+    "com.netflix.ninja",
+    "com.amazon.firetv.youtube",
+    "com.disney.disneyplus",
+    "com.canal.android.canal",
+    "com.stremio.one",
+    "org.jellyfin.androidtv"
+  ],
+  "background_color": "#090C14",
+  "wallpaper": true,
+  "cinematic_home": true,
+  "dock_glass": true,
+  "icon_only_buttons": true,
+  "app_glow": true,
+  "glow_style": "horizon",
+  "focus_overshoot": false,
+  "advanced_effects": true,
+  "columns": 6,
+  "show_inputs_pill": false,
+  "live_tv_package": "",
+  "hidden_apps": [
+    "com.amazon.firetv.troubleshooting",
+    "com.esaba.downloader",
+    "com.estrongs.android.pop",
+    "lysesoft.andftp",
+    "cm.aptoidetv.pt",
+    "com.adguard.android",
+    "org.blokada.origin.alarm"
+  ],
+  "app_library": true,
+  "library_ok_opens": true,
+  "stock_home_redirect": "com.amazon.tv.launcher",
+  "tile_menu": true
+}
