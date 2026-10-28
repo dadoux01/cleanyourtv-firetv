@@ -31,5 +31,6 @@
   "app_library": true,
   "library_ok_opens": true,
   "stock_home_redirect": "com.amazon.tv.launcher",
-  "tile_menu": true
+  "tile_menu": true,
+  "restore_key_services": true
 }
