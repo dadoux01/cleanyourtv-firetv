@@ -142,6 +142,10 @@ public class MainActivity extends Activity {
         b.setAllCaps(false);
         b.setTextSize(18);
         b.setFocusable(true);
+        b.setBackgroundResource(R.drawable.button_bg);
+        b.setTextColor(getResources().getColorStateList(R.color.button_text, getTheme()));
+        int pad = (int) (16 * getResources().getDisplayMetrics().density);
+        b.setPadding(pad * 2, pad, pad * 2, pad);
         b.setOnClickListener(v -> {
             if (!busy) action.run();
         });
