@@ -31,7 +31,7 @@ guessed: pass the list as an argument.
 - `firetv.py` never touches Home;
 - `firetv.py install-launcher` installs the launcher as an app, visible under *Your apps*;
 - the launcher can still take over visually: with `stock_home_redirect` and its accessibility service
-  (`HomeKeyService`), it is brought back to the front whenever Amazon Home appears (see the README);
+  (`HomeKeyService`), it is brought back to the front whenever Amazon Home appears (`python3 firetv.py home-redirect`, see the README);
 - another community route is a third-party app that watches the Home press (Launcher Manager Mini with Projectivy,
   for instance). Those are third-party sideloads Amazon has broken with OTA updates before, and they are not part of
   this repository.
@@ -67,7 +67,7 @@ would only report drift after each reboot.
 
 An update can turn packages back on. Run `python3 firetv.py check` (exit 0: nothing to do, 1: drift), then
 `python3 firetv.py fix`. To automate it, a weekly cron job on the exit code is enough. An update can also switch off the
-launcher's accessibility service: if the Home button opens Amazon Home again, enable the service again.
+launcher's accessibility service: if the Home button opens Amazon Home again, run `python3 firetv.py home-redirect` again.
 
 ## Restoring
 

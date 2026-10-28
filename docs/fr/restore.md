@@ -7,7 +7,7 @@
 Gardez la liste que vous avez appliquée. Une ligne remet la TV dans son état d'origine :
 
 ```bash
-python3 firetv.py restore                                                              # Fire TV (la liste du modèle)
+python3 firetv.py --host 192.168.1.50 restaurer                                         # Fire TV (la liste du modèle)
 TV_HOST=192.168.1.50 tools/restore.sh listes/<votre modèle>/debloat.txt com.amazon.tv.launcher   # équivalent
 ```
 
@@ -50,7 +50,7 @@ réactivation de toute la liste et la remise des échelles à `1.0`, comme il le
 
 ## Ce que la restauration laisse en place
 
-Elle laisse le nouveau launcher installé (retirez-le dans Paramètres → Applications de la TV si vous voulez qu'il
-disparaisse) et ne connaît pas les paquets que vous avez désactivés hors de la liste. Pour rebasculer plus tard,
-relancez le script d'installation. Si la TV est injoignable, sa page Paramètres → Applications peut aussi réactiver des
+Elle laisse le nouveau launcher installé (retirez-le avec `python3 firetv.py --host <ip> uninstall-launcher`, ou dans
+Paramètres → Applications de la TV) et ne connaît pas les paquets que vous avez désactivés hors de la liste. Pour revenir au débridage plus tard,
+relancez `python3 firetv.py --host <ip> appliquer`. Si la TV est injoignable, sa page Paramètres → Applications peut aussi réactiver des
 paquets.

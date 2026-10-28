@@ -1,6 +1,10 @@
 # Restoring your TV
 
-[Back to the README](../README.md#restoring-your-tv)
+🇬🇧 English · 🇫🇷 [Français](fr/restore.md)
+
+> **On Fire TV:** `python3 firetv.py --host <ip> restore` picks your model's list and passes `com.amazon.tv.launcher` as the stock launcher, which Fire OS never lets anyone disable. The `examples/` paths below are the upstream project's; here the lists live in `listes/`. To remove the launcher: `python3 firetv.py --host <ip> uninstall-launcher`.
+
+[Back to the README](../README.md)
 
 Keep the list you applied. One line puts the TV back the way it was:
 

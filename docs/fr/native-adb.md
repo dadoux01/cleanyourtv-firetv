@@ -2,6 +2,8 @@
 
 🇬🇧 [English](../../tools/native-adb.md) · 🇫🇷 Français
 
+> **Sur Fire TV :** inutile. Fire OS n'a pas de débogage sans fil, et le client Python atteint directement le port 5555.
+
 Le client Python reste la solution par défaut. Si la TV propose le débogage sans fil chiffré, `adb_shell` ne sait pas parler
 son protocole TLS. Le moteur ADB Google, facultatif, permet aux outils existants d'utiliser cette connexion sans ouvrir de
 port ADB en clair.
@@ -31,8 +33,8 @@ Son `close()` laisse la connexion ADB Google partagée et son serveur en marche,
 continuent de fonctionner.
 
 Ce réglage est hérité par `tools/disable.sh`, `tools/restore.sh`, `tools/privacy.py`, `tools/theme.sh` et les scripts
-d'installation ; leurs contrôles de sécurité habituels s'exécutent toujours. Sauvegardez d'abord et suivez `PROMPT.md` avant
-de modifier une TV. Par exemple :
+d'installation ; leurs contrôles de sécurité habituels s'exécutent toujours. Sauvegardez d'abord (`python3 firetv.py sauvegarde`)
+avant de modifier une TV. Par exemple :
 
 ```bash
 tools/venv/bin/python -I tools/tv.py --screenshot shots/avant.png

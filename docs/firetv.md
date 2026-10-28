@@ -25,12 +25,14 @@ au lieu d'être deviné : passez la liste en argument.
 ## Pourquoi l'accueil ne peut pas être remplacé
 
 `com.amazon.tv.launcher` reste l'accueil et Fire OS refuse de le désactiver : `pm disable-user` répond
-« Cannot disable a protected package ». Le port amont, qui désactive le launcher d'origine puis fait appel à
+« Cannot disable a protected package ». L'approche du projet d'origine, qui désactive le launcher d'origine puis appelle
 `set-home-activity`, ne s'applique donc pas. Ici :
 
 - `firetv.py` ne touche jamais à l'accueil ;
 - `firetv.py install-launcher` installe le launcher comme application, visible dans *Vos applications* ;
-- la voie communautaire pour un accueil personnalisé est une application tierce qui détecte l'appui sur Accueil
+- le launcher peut tout de même prendre la main visuellement : avec `stock_home_redirect` et son service d'accessibilité
+  (`HomeKeyService`), il revient au premier plan dès que l'accueil Amazon apparaît (`python3 firetv.py accueil`, voir le README) ;
+- une autre voie communautaire pour un accueil personnalisé est une application tierce qui détecte l'appui sur Accueil
   (Launcher Manager Mini, avec Projectivy par exemple). Ce sont des sideloads tiers, qu'Amazon a déjà cassés par OTA :
   ils ne font pas partie de ce dépôt.
 
@@ -64,7 +66,8 @@ désactiver à nouveau ne ferait que signaler un écart après chaque redémarra
 ## Après une mise à jour d'Amazon
 
 Une mise à jour peut réactiver des paquets. Lancez `python3 firetv.py verifier` (code 0 : rien à faire, 1 : écart) puis
-`python3 firetv.py corriger`. Pour automatiser, une tâche cron hebdomadaire sur le code de sortie suffit.
+`python3 firetv.py corriger`. Pour automatiser, une tâche cron hebdomadaire sur le code de sortie suffit. Une mise à jour peut aussi
+couper le service d'accessibilité du launcher : si le bouton Accueil rouvre l'accueil Amazon, relancez `python3 firetv.py accueil`.
 
 ## Restaurer
 

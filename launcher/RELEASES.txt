@@ -1,0 +1,6 @@
+# Published launcher builds: "tag sha256" per line, oldest first. firetv.py install-launcher --release installs the last
+# one and refuses a download whose SHA-256 differs from the one written here (the checksum comes from your clone of the
+# repository, not from the release). Add a line after each release, from the .sha256 file the release workflow publishes.
+# Builds listed / Versions publiées :
+# v1.0.0 is signed with a throwaway debug key: it cannot be updated in place by later builds (uninstall it first).
+v1.0.0 4fd7eff087259cb7b273e12d31a960d42721b382adda3427422d4f0d59da1810

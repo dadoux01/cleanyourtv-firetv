@@ -1,6 +1,10 @@
 # The microphone, and what can be said about it
 
-[Back to the README](../README.md#the-microphone-and-what-can-be-said-about-it)
+🇬🇧 English · 🇫🇷 [Français](fr/privacy.md)
+
+> **On Fire TV:** the audit runs the same way. The Fire OS lists in `listes/` keep Alexa voice search on purpose and say which Alexa extras they turn off; the Fire OS privacy switches are listed at the end of the FAQ.
+
+[Back to the README](../README.md)
 
 "Which of these packages is listening?" has no honest one-line answer, and a permission scan makes
 it worse:
@@ -16,7 +20,7 @@ it worse:
 candidates in three groups, each with:
 
 - its evidence — named by the firmware's own `voice_interaction_service`, a known component from
-  [`examples/`](../examples/), or nothing but a matching name;
+  [`examples/`](https://github.com/Gathin23/cleanyourtv/tree/main/examples), or nothing but a matching name;
 - whether the package declares `RECORD_AUDIO`, and whether it shares the system UID;
 - whether the returned AppOps history contains microphone access. A configured mode or a rejected
   attempt alone is not evidence of access.

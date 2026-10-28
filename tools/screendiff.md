@@ -44,4 +44,4 @@ tools/venv/bin/python -I tools/tv.py 'uiautomator dump /data/local/tmp/ui.xml >/
 - **Don't raise `--threshold` to make a difference go away.** If something did change, say what in the PR.
 - **Compare Home, not Live TV, HDMI or Netflix.** Those capture as empty on most TVs.
 
-The whole before/after method for a pull request is in [`docs/workflows/perf-ab.md`](../docs/workflows/perf-ab.md).
+The whole before/after method for a pull request is in [`docs/workflows/perf-ab.md`](https://github.com/Gathin23/cleanyourtv/blob/main/docs/workflows/perf-ab.md).

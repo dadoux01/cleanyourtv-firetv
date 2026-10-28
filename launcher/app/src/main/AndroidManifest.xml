@@ -45,7 +45,9 @@
             <action android:name="android.settings.APPLICATION_DETAILS_SETTINGS" />
             <data android:scheme="package" />
         </intent>
-        <!-- AppActions: the Appstore page of an app, and the system uninstaller. -->
+        <!-- AppActions: the Appstore page of an app, and the system uninstaller. The Appstore package is named
+             too, so it stays visible whatever path its amzn:// filter declares. -->
+        <package android:name="com.amazon.venezia" />
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="amzn" android:host="apps" />

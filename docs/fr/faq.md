@@ -20,7 +20,8 @@ récupération est généralement la solution ([#1578](https://github.com/Gathin
 - Une TV qui redémarre encore en boucle après la réinitialisation met en cause le matériel plutôt que le débridage
   ([#1592](https://github.com/Gathin23/cleanyourtv/issues/1592)).
 
-Le [dépannage](TROUBLESHOOTING.md) recense les cas rencontrés jusqu'ici.
+Le [dépannage](TROUBLESHOOTING.md) recense les cas rencontrés jusqu'ici (section Connexion traduite ; les cas propres à
+d'autres marques sont dans la [version anglaise](../TROUBLESHOOTING.md)).
 
 ## L'accès ADB n'est-il pas une faille de sécurité ?
 
@@ -37,7 +38,7 @@ de débogage ou Android 4.4), n'importe quel appareil du réseau local obtient u
    - Après le redémarrage, l'ancien numéro apparaît fermé dans tous les cas : le débogage sans fil prend un nouveau
      port à chaque démarrage.
 2. Redémarrez la TV, puis vérifiez depuis votre ordinateur que le port a disparu :
-   `python3 tools/adb-closed.py <ip de la tv>` doit dire que le port est fermé (ou `python3 firetv.py close`).
+   `python3 tools/adb-closed.py <ip de la tv>` doit dire que le port est fermé (ou `python3 firetv.py --host <ip de la tv> fermer`).
    - Le débogage sans fil doit toujours être désactivé dans les options pour les développeurs, et `adb mdns services`
      ne doit lister aucune entrée `_adb-tls-connect._tcp` pour la TV ; si elle est revenue, désactivez-le et vérifiez
      son nouveau port comme à l'étape 1.

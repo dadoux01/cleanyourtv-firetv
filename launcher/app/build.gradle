@@ -11,8 +11,23 @@ android {
         applicationId providers.gradleProperty('launcherApplicationId').getOrElse('com.gathin.tvhome')
         minSdk 26
         targetSdk 34
-        versionCode 10
-        versionName '3.1'
+        versionCode 11
+        versionName '3.1-firetv.1.1'
+    }
+
+    // Published builds (the GitHub release) are signed with the project's own key, given through these variables by
+    // CI, so every release has the same signature and installs over the previous one. A local build has none of them
+    // and falls back to the debug key below.
+    def releaseKeystore = System.getenv('FIRETV_KEYSTORE')
+    signingConfigs {
+        if (releaseKeystore) {
+            release {
+                storeFile file(releaseKeystore)
+                storePassword System.getenv('FIRETV_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('FIRETV_KEY_ALIAS')
+                keyPassword System.getenv('FIRETV_KEY_PASSWORD')
+            }
+        }
     }
 
     buildTypes {
@@ -21,8 +36,9 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            // Sideloaded over ADB, never published: sign with the debug key so it installs over a debug build.
-            signingConfig signingConfigs.debug
+            // The release key when CI provides it (see above); otherwise the debug key, for builds made on your own
+            // computer. The two cannot replace each other on a TV: switching means uninstalling first.
+            signingConfig releaseKeystore ? signingConfigs.release : signingConfigs.debug
         }
     }
 

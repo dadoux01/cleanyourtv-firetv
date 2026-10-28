@@ -1,6 +1,10 @@
 # After a firmware update
 
-[Back to the README](../README.md#after-a-firmware-update)
+🇬🇧 English · 🇫🇷 [Français](fr/firmware-updates.md)
+
+> **On Fire TV:** run `python3 firetv.py --host <ip> check`, then `fix`: they pick your model's list and keep `com.amazon.tv.launcher` as Home (Fire OS's Home stays Amazon's on purpose, see the section on `stock_home_redirect` below). An update can also switch the launcher's accessibility service off: if the Home button opens Amazon Home again, run `python3 firetv.py --host <ip> home-redirect`. The `examples/` paths below are the upstream project's; here the lists live in `listes/`.
+
+[Back to the README](../README.md)
 
 An update installs over the cleaned-up system: the listed packages come back, Home goes to the
 stock launcher, and new preloads appear that no list mentions. Nothing else here notices, so
@@ -10,9 +14,9 @@ compare the TV with the list you applied.
 
 The check and `--fix` reach the TV over network ADB. If you closed ADB as
 [Isn't ADB access a security hole?](faq.md#isnt-adb-access-a-security-hole) describes, open it again first: USB
-debugging, and Network/ADB debugging if the TV has it, back on as in [Quick start](../README.md#quick-start)
+debugging, and Network/ADB debugging if the TV has it, back on as in [Quick start](../README.md)
 step 1. On a TV whose port 5555 only opens through Wireless debugging, switch that on as well, pair
-it again with the stock `adb` and run `adb tcpip 5555`, as in [Doing it by hand](../README.md#doing-it-by-hand).
+it again with the stock `adb` and run `adb tcpip 5555`, as in [Doing it by hand](../README.md).
 Closing revoked this computer's authorisation, so accept "Allow USB debugging?" on the TV when the
 check connects. While ADB is closed the check can only report "could not reach the TV", even with
 the TV on and `TV_HOST` right. Close ADB the same way once you are done. With it open:

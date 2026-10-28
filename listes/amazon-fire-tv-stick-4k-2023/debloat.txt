@@ -123,7 +123,7 @@ com.amazon.shoptv.firetv.client
 com.amazon.hedwig                          # Fire TV Channels
 com.amazon.tv.livetv                       # Live tab and guide (no tuner on a stick; Pluto TV and the like still open as apps)
 com.amazon.franktvinput                    # live TV input feeding the Live tab
-# com.amazon.systemnotices : Fire OS le réactive à chaque démarrage (constaté le 2026-10-28 sur AFTKM, RS8185.3891N)
+# com.amazon.systemnotices: Fire OS turns it back on at every boot (seen 2026-10-28 on AFTKM, RS8185.3891N)
 # com.amazon.systemnotices
 com.amazon.tv.releasenotes                 # "what's new" release notes
 com.amazon.uxnotification                  # UX notification popups

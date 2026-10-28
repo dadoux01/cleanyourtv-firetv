@@ -1,5 +1,9 @@
 # Use a paired Google ADB connection
 
+🇬🇧 English · 🇫🇷 [Français](../docs/fr/native-adb.md)
+
+> **On Fire TV:** not needed. Fire OS has no Wireless debugging, and the Python client reaches port 5555 directly.
+
 The Python client remains the default. If the TV offers encrypted Wireless debugging,
 `adb_shell` cannot speak its TLS protocol. The optional Google ADB backend lets the existing
 tools use that connection without opening a plaintext ADB port.
@@ -29,7 +33,7 @@ and server running, so other tools using them keep working.
 
 The setting is inherited by `tools/disable.sh`, `tools/restore.sh`, `tools/privacy.py`,
 `tools/theme.sh` and `launcher/build-and-install.sh`; their existing safety checks still
-run. Back up first and follow `PROMPT.md` before changing a TV. For example:
+run. Back up first (`python3 firetv.py backup`) before changing a TV. For example:
 
 ```bash
 tools/venv/bin/python -I tools/tv.py --screenshot shots/before.png

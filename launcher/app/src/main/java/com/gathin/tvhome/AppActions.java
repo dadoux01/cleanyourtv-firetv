@@ -17,7 +17,9 @@ final class AppActions {
 
     /** The Appstore page of the app (amzn://apps/android?p=), where Fire OS shows "Update" when one is out. */
     static Intent update(Context context, String pkg) {
-        Intent store = new Intent(Intent.ACTION_VIEW, Uri.parse("amzn://apps/android?p=" + pkg));
+        Uri page = new Uri.Builder().scheme("amzn").authority("apps").appendPath("android")
+                .appendQueryParameter("p", pkg).build();
+        Intent store = new Intent(Intent.ACTION_VIEW, page);
         return resolves(context, store) ? store : null;
     }
 

@@ -22,5 +22,14 @@ bench-results/
 launcher/hs_err_pid*.log
 launcher/replay_pid*.log
 
-# Clone de référence du dépôt d origine (voir README), jamais publié
+# A local clone of the upstream project, used for comparison only; never published.
 upstream/
+# Signing keys and secrets never belong here (the release key lives outside the repository).
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+.env*
+# Downloaded release APKs
+launcher/release/

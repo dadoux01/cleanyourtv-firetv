@@ -43,7 +43,7 @@ folder goes, a path through a file and an empty `--out` are refused before the T
   activities. They do not clear the other app's data or force-stop it. Check that it is responsive
   after a long session; an already accumulated history is not removed by this flag.
 - **The package:** `--package` names the launcher, `com.gathin.tvhome` unless your build has another one
-  (a fork: [SHOWCASE.md](../SHOWCASE.md) lists several). It decides which process the recording follows and
+  (a fork: [SHOWCASE.md](https://github.com/Gathin23/cleanyourtv/blob/main/SHOWCASE.md) lists several). It decides which process the recording follows and
   which one the report reads, so a fork has to pass it to `trace.py`, `trace_report.py` and
   `flamechart.py` alike: with the wrong name the report prints `–` for every step instead of saying the
   package was not in the trace, and the chart stops at `no <package> process in the trace`.
@@ -92,4 +92,4 @@ and GPU waits where available; a draw's duration is not the full frame time.
   the first frame.
 - **Never commit the `.pftrace` files.** They hold the TV's process list.
 
-The whole before/after method for a pull request is in [`docs/workflows/perf-ab.md`](../docs/workflows/perf-ab.md).
+The whole before/after method for a pull request is in [`docs/workflows/perf-ab.md`](https://github.com/Gathin23/cleanyourtv/blob/main/docs/workflows/perf-ab.md).

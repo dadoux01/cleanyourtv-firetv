@@ -1,6 +1,10 @@
 # Questions people ask: the long answers
 
-[Back to the README](../README.md#questions-people-ask)
+🇬🇧 English · 🇫🇷 [Français](fr/faq.md)
+
+> **On Fire TV:** `python3 firetv.py --host <ip> close` runs the port check below. Fire OS has no Wireless debugging, so port 5555 is the only one to close. The Fire OS privacy switches are at the end of this page.
+
+[Back to the README](../README.md)
 
 The README keeps a short answer to each question. These are the ones that need more room.
 
@@ -84,7 +88,7 @@ every list keeps. The paths are Google TV's; other Android TV builds move some o
   network's name.
 - **Settings → Privacy → Usage & diagnostics** off, before the debloat. On a Chromecast with Google TV 4K
   the page comes from setupwraith, which most Google TV lists disable for the launcher swap, and on a
-  [Hisense 50A6H4](../examples/hisense-smarttv-4k-ffm-android11/debloat.txt) it opened nothing after the
+  [Hisense 50A6H4](https://github.com/Gathin23/cleanyourtv/blob/main/examples/hisense-smarttv-4k-ffm-android11/debloat.txt) it opened nothing after the
   debloat.
 - **Settings → Network & Internet → Scanning always available** off. It lets Google's location service and
   other apps scan for Wi-Fi networks even while Wi-Fi is off, so it matters most on a TV on Ethernet.

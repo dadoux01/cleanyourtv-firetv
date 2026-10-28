@@ -15,7 +15,7 @@ d'accessibilité du launcher : si le bouton Accueil rouvre l'accueil Amazon, ré
 ## Rouvrir ADB, puis vérifier
 
 La vérification et `--fix` joignent la TV par ADB réseau. Si vous avez fermé ADB comme
-[le décrit la FAQ](faq.md#ladb-nest-il-pas-une-faille-de-securite), rouvrez-le d'abord : débogage USB, et débogage
+[le décrit la FAQ](faq.md#laccès-adb-nest-il-pas-une-faille-de-sécurité-), rouvrez-le d'abord : débogage USB, et débogage
 réseau/ADB si la TV en a un, comme à l'étape 1 du démarrage du README. Sur une TV dont le port 5555 ne s'ouvre que par le
 débogage sans fil, activez-le aussi, appairez-la de nouveau avec le `adb` d'origine et lancez `adb tcpip 5555`. La
 fermeture a révoqué l'autorisation de cet ordinateur : acceptez « Autoriser le débogage USB ? » sur la TV quand la

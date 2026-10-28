@@ -5,7 +5,7 @@
 [Retour au README](../../README.fr.md)
 
 Un petit écran d'accueil natif pour Android TV : **environ 550 Ko**, Java pur, conçu pour des TV avec 1 Go de RAM. Pas de
-flou, pas de vidéo, pas de permission réseau, pas de service en arrière-plan. Cette page détaille ce que le README omet :
+flou, pas de vidéo, pas de permission INTERNET, et aucun service en arrière-plan hormis l'assistant d'accessibilité facultatif. Cette page détaille ce que le README omet :
 réglages, langues, touches de la télécommande et compilation. Toutes les clés qu'un thème peut définir sont dans
 [`themes/README.md`](../../themes/README.md#keys).
 
@@ -16,8 +16,8 @@ l'accueil par défaut ») ne s'appliquent pas à Fire OS.
 ## Quelles TV
 
 La **TV** doit avoir Android 8.0 (API 26) ou plus récent : `minSdk` est un plancher de compilation dans
-[`launcher/app/build.gradle`](../../launcher/app/build.gradle), et le script d'installation interroge la TV sur
-`ro.build.version.sdk` avant de compiler, de sorte qu'un appareil trop ancien reçoit les deux numéros au lieu d'échouer à
+[`launcher/app/build.gradle`](../../launcher/app/build.gradle), et `firetv.py install-launcher` interroge la TV sur
+`ro.build.version.sdk` avant d'installer, de sorte qu'un appareil trop ancien reçoit les deux numéros au lieu d'échouer à
 `pm install`. Le Fire TV Stick 4K de 2018 (Android 7.1.2) est donc exclu pour le launcher, pas pour le débridage.
 
 ## Le compiler soi-même
@@ -37,24 +37,24 @@ SDK dans un dossier de l'utilisateur (Windows, macOS et Linux), sans droits admi
 
 Les thèmes définissent les mêmes clés, plus une couleur de fond et un fond d'écran.
 
-## Réglages du launcher
+## Paramètres du launcher
 
-Cliquez sur **Réglages** pour ceux de la TV. Maintenez OK dessus pour son menu :
+Cliquez sur **Paramètres** pour ceux de la TV. Maintenez OK dessus pour son menu :
 
-- **Réglages du launcher**. Avec `launcher_settings_button`, un clic les ouvre à la place, et le menu omet la ligne.
-- **Réglages natifs**, quand la TV fournit sa propre application de réglages à côté de celle d'Android (Xiaomi Chine,
+- **Paramètres du launcher**. Avec `launcher_settings_button`, un clic les ouvre à la place, et le menu omet la ligne.
+- **Paramètres du fabricant**, quand la TV fournit sa propre application de paramètres à côté de celle d'Android (Xiaomi Chine,
   TCL/FFALCON et Fire OS figurent dans `settings_fallback_components`), car elle contient des pages qu'Android n'a pas.
-- **Cartes de modules**, avec `module_cards`.
+- **Cartes des modules**, avec `module_cards`.
 - **Modifier le dock**, avec `dock_row`.
-- **Réorganiser les applications**.
+- **Réorganiser les applis**.
 - **Redémarrer…** tant que `HomeKeyService` fonctionne : il ouvre le menu d'alimentation du système (un launcher ne peut pas
   redémarrer la TV lui-même).
 
 La page du launcher propose ces lignes, de haut en bas :
 
-- **Réorganiser les applications**, seulement avec `launcher_settings_button` : OK saisit une application, les flèches la
+- **Réorganiser les applis**, seulement avec `launcher_settings_button` : OK saisit une application, les flèches la
   déplacent, Retour la pose, et Retour de nouveau termine.
-- **Applications par rangée** 4, 5, 6 ou 7 ; **Rangées sous le dock** de 0 à 3, le nombre de rangées de tuiles visibles sous
+- **Applications par ligne** 4, 5, 6 ou 7 ; **Rangées sous le dock** de 0 à 3, le nombre de rangées de tuiles visibles sous
   la bande du dock ; **Opacité de la bande du dock** 100 %, 70 %, 50 % ou 30 %. Les deux derniers n'agissent que lorsque le
   dock est sa propre rangée (`dock_row`, activé par défaut).
 - **Fond d'écran** : une image de la collection du thème (ou son `wallpaper.jpg`), **Aucun**, ou **Défaut du thème**. Un choix
@@ -65,7 +65,7 @@ La page du launcher propose ces lignes, de haut en bas :
 - **Ouvrir au démarrage**, seulement avec `open_on_start_choice` : Désactivé, ou une application qui s'ouvre à la place de
   l'accueil la première fois que l'accueil apparaît après le démarrage de la TV. Une fois par démarrage, donc Accueil et Retour
   atteignent toujours le launcher.
-- **Suivre le thème (réinitialiser les choix sur la TV)**, qui efface tous les choix ci-dessus. Pousser ou réinitialiser un
+- **Suivre le thème (réinitialiser les choix)**, qui efface tous les choix ci-dessus. Pousser ou réinitialiser un
   thème les efface aussi.
 
 ## Langues
@@ -80,11 +80,11 @@ l'anglais). Android 13+ permet de choisir la langue du launcher seul :
 L'hébreu inverse la mise en page : boutons de menu à gauche, date et horloge à droite, dock et rangées d'applications
 commençant à droite avec la navigation correspondante.
 
-## Cartes de modules
+## Cartes des modules
 
 Toute application TV peut déclarer sa propre tuile (libellé, légende, halo). Le launcher le demande une fois par application,
-la garde cachée par défaut et mémorise la réponse pour la clé de signature et le nom de carte. Maintenez OK sur Réglages et
-choisissez Cartes de modules pour changer d'avis. Les modules du projet d'origine ne sont pas repris ici.
+la garde cachée par défaut et mémorise la réponse pour la clé de signature et le nom de carte. Maintenez OK sur Paramètres et
+choisissez Cartes des modules pour changer d'avis. Les modules du projet d'origine ne sont pas repris ici.
 
 ## Écran de veille horloge
 
@@ -96,7 +96,7 @@ tools/tv.py 'settings put secure screensaver_components com.gathin.tvhome/.Clock
 
 ## Touches de la télécommande
 
-- Un service d'accessibilité facultatif rétablit le bouton **Entrée** de la télécommande sur Google TV
+- Un service d'accessibilité facultatif rétablit le bouton **Source** (Entrée) de la télécommande sur Google TV
   (`INPUT_KEY_SERVICE=1` à l'installation).
 - Il peut rétablir d'autres boutons que seul le launcher d'origine gérait, comme le bouton **YouTube** (`app_keys` et
   `input_key_keycodes`, dans config.xml ou un thème ; `HOME_KEY_SERVICE=1` lit aussi `app_keys`).
@@ -105,7 +105,7 @@ tools/tv.py 'settings put secure screensaver_components com.gathin.tvhome/.Clock
 - À la place d'une application, une entrée `app_keys` peut nommer une action : `back`, `home`, `recents`, `mute`, `sleep`,
   `screensaver`, `settings` ou `wifi`.
 - Avec `settings_key_panel`, la touche engrenage ouvre un petit panneau de réglages rapides par-dessus l'accueil ou n'importe
-  quelle application : réglages de la TV, Affichage, Réseau, Applications et Réglages du launcher.
+  quelle application : paramètres du téléviseur, Affichage, Réseau, Applications et Paramètres du launcher.
 
 Le format complet de `app_keys` est dans le tableau des clés de [`themes/README.md`](../../themes/README.md#keys).
 
