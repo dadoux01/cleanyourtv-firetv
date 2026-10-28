@@ -1,8 +1,0 @@
-io.github.dadoux01.firetvupdater-pngs-0 /home/michael/cleanyourtv-firetv/launcher/updater/build/generated/res/pngs/release
-io.github.dadoux01.firetvupdater-resValues-1 /home/michael/cleanyourtv-firetv/launcher/updater/build/generated/res/resValues/release
-io.github.dadoux01.firetvupdater-packageReleaseResources-2 /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/incremental/release/packageReleaseResources/merged.dir
-io.github.dadoux01.firetvupdater-packageReleaseResources-3 /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
-io.github.dadoux01.firetvupdater-merged-not-compiled-resources-4 /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/merged-not-compiled-resources/release
-io.github.dadoux01.firetvupdater-release-5 /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/merged_res/release/mergeReleaseResources
-io.github.dadoux01.firetvupdater-main-6 /home/michael/cleanyourtv-firetv/launcher/updater/src/main/res
-io.github.dadoux01.firetvupdater-release-7 /home/michael/cleanyourtv-firetv/launcher/updater/src/release/res
