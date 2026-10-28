@@ -102,6 +102,8 @@ The app is called **Home** under *Your apps* (**Accueil** on a French TV). `--re
 [launcher/RELEASES.txt](launcher/RELEASES.txt) and refuses it unless its SHA-256 matches the one written there. A build
 made on your computer and a published build are signed with different keys and cannot replace each other: switching
 means `uninstall-launcher` first.
+Published builds from v1.1.0 on are signed with the project key, whose certificate SHA-256 is
+`fb0852ad1fdc05de1298c11d66fba0f51a789bd3b8a3a204f841434bc9515944` (check with `apksigner verify --print-certs`).
 
 `themes/firetv` starts from `glass`: a six-column frosted dock (Netflix, YouTube, Disney+, Canal+, Stremio, Jellyfin), no
 Inputs button (a stick has no HDMI input) and utility apps hidden from Home but still in the app library. Edit

@@ -104,6 +104,8 @@ L'application s'appelle **Accueil** dans *Vos applications* (**Home** sur une TV
 dernière version listée dans [launcher/RELEASES.txt](launcher/RELEASES.txt) et la refuse si sa somme SHA-256 diffère de
 celle écrite là. Une version compilée sur votre ordinateur et une version publiée sont signées avec des clés différentes et
 ne se remplacent pas : pour passer de l'une à l'autre, faites d'abord `desinstaller-launcher`.
+Les versions publiées à partir de la v1.1.0 sont signées avec la clé du projet, dont le certificat a pour SHA-256
+`fb0852ad1fdc05de1298c11d66fba0f51a789bd3b8a3a204f841434bc9515944` (vérifiable avec `apksigner verify --print-certs`).
 
 Le thème `themes/firetv` part de `glass` : dock vitré à six colonnes (Netflix, YouTube, Disney+, Canal+, Stremio,
 Jellyfin), bouton Sources masqué (un stick n'a pas d'entrée HDMI) et applications utilitaires cachées de l'accueil mais

@@ -4,3 +4,5 @@
 # Builds listed / Versions publiées :
 # v1.0.0 is signed with a throwaway debug key: it cannot be updated in place by later builds (uninstall it first).
 v1.0.0 4fd7eff087259cb7b273e12d31a960d42721b382adda3427422d4f0d59da1810
+# v1.1.0 onwards is signed with the project key (certificate SHA-256 fb0852ad1fdc05de1298c11d66fba0f51a789bd3b8a3a204f841434bc9515944).
+v1.1.0 28931db31a357bcfb8c0169e9a85d49586b5a62e900200071bc7eda2b602d58f
