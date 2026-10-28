@@ -1,0 +1,33 @@
+R_DEF: Internal format may change without notice
+local
+drawable banner
+id actions
+id installed
+id latest
+id status
+id title
+layout activity_main
+mipmap ic_launcher
+string accessibility
+string accessibility_hint
+string allow_unknown
+string app_name
+string bad_file
+string check
+string checking
+string confirm
+string downloading
+string install_failed
+string install_launcher
+string installed_ok
+string installed_version
+string latest_version
+string network_error
+string not_installed
+string other_signature
+string title
+string uninstall_other
+string up_to_date
+string update_launcher
+string update_self
+string verifying

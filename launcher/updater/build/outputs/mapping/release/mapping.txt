@@ -1,0 +1,397 @@
+# compiler: R8
+# compiler_version: 8.5.35
+# min_api: 26
+# common_typos_disable
+# {"id":"com.android.tools.r8.mapping","version":"2.2"}
+# pg_map_id: 386955e
+# pg_map_hash: SHA-256 386955efb7e4feb4862de58a79df228ae4d2ad8f5eab2277b5264b68bc4ecdb2
+io.github.dadoux01.firetvupdater.InstallResultReceiver -> io.github.dadoux01.firetvupdater.InstallResultReceiver:
+# {"id":"sourceFile","fileName":"InstallResultReceiver.java"}
+    0:3:void <init>():9:9 -> <init>
+    0:6:void onReceive(android.content.Context,android.content.Intent):14:14 -> onReceive
+    7:17:void onReceive(android.content.Context,android.content.Intent):15:15 -> onReceive
+    18:27:void onReceive(android.content.Context,android.content.Intent):17:17 -> onReceive
+    28:30:void onReceive(android.content.Context,android.content.Intent):19:19 -> onReceive
+    31:38:void onReceive(android.content.Context,android.content.Intent):20:20 -> onReceive
+    39:48:void onReceive(android.content.Context,android.content.Intent):25:25 -> onReceive
+    49:58:void onReceive(android.content.Context,android.content.Intent):28:28 -> onReceive
+    59:68:void onReceive(android.content.Context,android.content.Intent):29:29 -> onReceive
+    69:71:void onReceive(android.content.Context,android.content.Intent):31:31 -> onReceive
+    72:74:void onReceive(android.content.Context,android.content.Intent):33:33 -> onReceive
+    75:83:void onReceive(android.content.Context,android.content.Intent):39:39 -> onReceive
+    84:89:void onReceive(android.content.Context,android.content.Intent):40:40 -> onReceive
+    90:95:void onReceive(android.content.Context,android.content.Intent):41:41 -> onReceive
+    96:107:void onReceive(android.content.Context,android.content.Intent):42:42 -> onReceive
+    108:117:void onReceive(android.content.Context,android.content.Intent):43:43 -> onReceive
+io.github.dadoux01.firetvupdater.Installer -> a.b:
+# {"id":"sourceFile","fileName":"Installer.java"}
+    0:9:java.lang.String certOf(android.content.pm.PackageInfo):69:69 -> a
+    10:26:java.lang.String certOf(android.content.pm.PackageInfo):70:70 -> a
+    27:36:java.lang.String certOf(android.content.pm.PackageInfo):71:71 -> a
+    37:40:java.lang.String certOf(android.content.pm.PackageInfo):73:73 -> a
+    41:48:java.lang.String certOf(android.content.pm.PackageInfo):74:74 -> a
+    49:62:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(byte[]):20:20 -> a
+    49:62:java.lang.String certOf(android.content.pm.PackageInfo):74 -> a
+    63:69:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(byte[]):22:22 -> a
+    63:69:java.lang.String certOf(android.content.pm.PackageInfo):74 -> a
+    70:73:java.lang.String certOf(android.content.pm.PackageInfo):76:76 -> a
+    74:84:java.lang.String certOf(android.content.pm.PackageInfo):77:77 -> a
+    85:98:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(byte[]):20:20 -> a
+    85:98:java.lang.String certOf(android.content.pm.PackageInfo):77 -> a
+    99:105:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(byte[]):22:22 -> a
+    99:105:java.lang.String certOf(android.content.pm.PackageInfo):77 -> a
+    0:7:java.lang.String io.github.dadoux01.firetvupdater.Verify.hex(byte[]):38:38 -> b
+    8:37:java.lang.String io.github.dadoux01.firetvupdater.Verify.hex(byte[]):39:39 -> b
+    38:42:java.lang.String io.github.dadoux01.firetvupdater.Verify.hex(byte[]):40:40 -> b
+    0:7:void install(android.content.Context,java.io.File,java.lang.String):82:82 -> c
+    8:13:void install(android.content.Context,java.io.File,java.lang.String):83:83 -> c
+    14:16:void install(android.content.Context,java.io.File,java.lang.String):84:84 -> c
+    17:20:void install(android.content.Context,java.io.File,java.lang.String):85:85 -> c
+    21:24:void install(android.content.Context,java.io.File,java.lang.String):86:86 -> c
+    25:44:void install(android.content.Context,java.io.File,java.lang.String):87:87 -> c
+    45:46:void install(android.content.Context,java.io.File,java.lang.String):88:88 -> c
+    47:59:void install(android.content.Context,java.io.File,java.lang.String):89:89 -> c
+    60:64:void install(android.content.Context,java.io.File,java.lang.String):90:90 -> c
+    65:73:void install(android.content.Context,java.io.File,java.lang.String):91:91 -> c
+    74:86:void install(android.content.Context,java.io.File,java.lang.String):92:92 -> c
+    87:97:void install(android.content.Context,java.io.File,java.lang.String):93:93 -> c
+    98:108:void install(android.content.Context,java.io.File,java.lang.String):94:94 -> c
+    109:116:void install(android.content.Context,java.io.File,java.lang.String):95:95 -> c
+    117:136:void install(android.content.Context,java.io.File,java.lang.String):87:87 -> c
+    137:145:void install(android.content.Context,java.io.File,java.lang.String):86:86 -> c
+    0:8:long installedVersion(android.content.Context,java.lang.String):27:27 -> d
+    9:26:long installedVersion(android.content.Context,java.lang.String):28:28 -> d
+io.github.dadoux01.firetvupdater.Installer$$ExternalSyntheticApiModelOutline0 -> a.a:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    0:4:long a.Installer$$ExternalSyntheticApiModelOutline0.m(android.content.pm.PackageInfo):0:0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:2:android.content.pm.SigningInfo a.Installer$$ExternalSyntheticApiModelOutline0.m(android.content.pm.PackageInfo):0:0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:4:boolean a.Installer$$ExternalSyntheticApiModelOutline0.m(android.content.pm.SigningInfo):0:0 -> c
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:4:android.content.pm.Signature[] a.Installer$$ExternalSyntheticApiModelOutline0.m(android.content.pm.SigningInfo):0:0 -> d
+      # {"id":"com.android.tools.r8.synthesized"}
+io.github.dadoux01.firetvupdater.MainActivity -> io.github.dadoux01.firetvupdater.MainActivity:
+# {"id":"sourceFile","fileName":"MainActivity.java"}
+    java.util.concurrent.ExecutorService worker -> a
+    android.widget.TextView installed -> b
+    android.widget.TextView latest -> c
+    android.widget.TextView status -> d
+    android.widget.LinearLayout actions -> e
+    io.github.dadoux01.firetvupdater.Release release -> f
+      # {"id":"com.android.tools.r8.residualsignature","signature":"La/i;"}
+    boolean busy -> g
+    int $r8$clinit -> h
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:2:void <init>():31:31 -> <init>
+    3:9:void <init>():37:37 -> <init>
+    0:4:void addButton(java.lang.String,java.lang.Runnable):140:140 -> a
+    5:8:void addButton(java.lang.String,java.lang.Runnable):141:141 -> a
+    9:13:void addButton(java.lang.String,java.lang.Runnable):142:142 -> a
+    14:17:void addButton(java.lang.String,java.lang.Runnable):143:143 -> a
+    18:20:void addButton(java.lang.String,java.lang.Runnable):144:144 -> a
+    21:28:void addButton(java.lang.String,java.lang.Runnable):145:145 -> a
+    29:34:void addButton(java.lang.String,java.lang.Runnable):148:148 -> a
+    35:50:void addButton(java.lang.String,java.lang.Runnable):150:150 -> a
+    51:56:void addButton(java.lang.String,java.lang.Runnable):151:151 -> a
+    0:3:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198:198 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(La/h;Ljava/io/File;)Ljava/lang/String;"}
+    4:8:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):27:27 -> b
+    4:8:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    9:14:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):28:28 -> b
+    9:14:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    15:16:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):29:29 -> b
+    15:16:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    17:30:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):30:30 -> b
+    17:30:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    31:38:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):31:31 -> b
+    31:38:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    39:41:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):32:32 -> b
+    39:41:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    42:48:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198:198 -> b
+    49:62:android.content.pm.PackageInfo io.github.dadoux01.firetvupdater.Installer.archiveInfo(android.content.Context,java.io.File):58:58 -> b
+    49:62:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):199 -> b
+    63:65:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):200:200 -> b
+    66:92:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):201:201 -> b
+    93:106:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):202:202 -> b
+    107:127:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):203:203 -> b
+    128:151:java.lang.String io.github.dadoux01.firetvupdater.Installer.archiveCert(android.content.Context,java.io.File):53:53 -> b
+    128:151:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):206 -> b
+    152:155:java.lang.String io.github.dadoux01.firetvupdater.Installer.archiveCert(android.content.Context,java.io.File):54:54 -> b
+    152:155:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):206 -> b
+    156:169:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):206:206 -> b
+    170:178:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):27:27 -> b
+    170:178:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    179:184:java.lang.String io.github.dadoux01.firetvupdater.Verify.sha256(java.io.File):33:33 -> b
+    179:184:java.lang.String check(io.github.dadoux01.firetvupdater.Release$App,java.io.File):198 -> b
+    0:5:void check():89:89 -> c
+    6:7:void check():90:90 -> c
+    8:10:void check():91:91 -> c
+    11:18:void check():92:92 -> c
+    19:31:void check():93:93 -> c
+    7:14:boolean io.github.dadoux01.firetvupdater.Verify.trustedUrl(java.lang.String):55:55 -> d
+    7:14:java.net.HttpURLConnection open(java.lang.String):230 -> d
+    7:14:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    15:27:java.net.HttpURLConnection open(java.lang.String):231:231 -> d
+    15:27:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    28:32:java.net.HttpURLConnection open(java.lang.String):232:232 -> d
+    28:32:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    33:35:java.net.HttpURLConnection open(java.lang.String):233:233 -> d
+    33:35:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    36:38:java.net.HttpURLConnection open(java.lang.String):234:234 -> d
+    36:38:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    39:45:java.net.HttpURLConnection open(java.lang.String):235:235 -> d
+    39:45:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    46:57:java.net.HttpURLConnection connect(java.lang.String):243:243 -> d
+    58:63:java.net.HttpURLConnection connect(java.lang.String):245:245 -> d
+    64:68:java.net.HttpURLConnection connect(java.lang.String):246:246 -> d
+    69:85:java.net.HttpURLConnection connect(java.lang.String):248:248 -> d
+    86:98:java.net.HttpURLConnection connect(java.lang.String):247:247 -> d
+    99:101:java.net.HttpURLConnection connect(java.lang.String):252:252 -> d
+    102:121:java.net.HttpURLConnection connect(java.lang.String):253:253 -> d
+    122:141:java.net.HttpURLConnection open(java.lang.String):230:230 -> d
+    122:141:java.net.HttpURLConnection connect(java.lang.String):242 -> d
+    142:149:java.net.HttpURLConnection connect(java.lang.String):257:257 -> d
+    0:3:void download(java.lang.String,java.io.File):275:275 -> e
+    4:14:void download(java.lang.String,java.io.File):277:277 -> e
+    15:18:void download(java.lang.String,java.io.File):278:278 -> e
+    19:34:void download(java.lang.String,java.io.File):279:279 -> e
+    35:40:void download(java.lang.String,java.io.File):282:282 -> e
+    41:48:void download(java.lang.String,java.io.File):281:281 -> e
+    49:54:void download(java.lang.String,java.io.File):284:284 -> e
+    55:62:void download(java.lang.String,java.io.File):285:285 -> e
+    63:82:void download(java.lang.String,java.io.File):277:277 -> e
+    83:85:void download(java.lang.String,java.io.File):285:285 -> e
+    86:86:void download(java.lang.String,java.io.File):286:286 -> e
+    0:5:byte[] fetch(java.lang.String,int):261:261 -> f
+      # {"id":"com.android.tools.r8.residualsignature","signature":"()[B"}
+    6:16:byte[] fetch(java.lang.String,int):262:262 -> f
+    17:18:byte[] fetch(java.lang.String,int):263:263 -> f
+    19:25:byte[] fetch(java.lang.String,int):264:264 -> f
+    26:28:byte[] fetch(java.lang.String,int):265:265 -> f
+    29:47:byte[] fetch(java.lang.String,int):266:266 -> f
+    48:51:byte[] fetch(java.lang.String,int):268:268 -> f
+    52:57:byte[] fetch(java.lang.String,int):269:269 -> f
+    58:65:byte[] fetch(java.lang.String,int):270:270 -> f
+    66:85:byte[] fetch(java.lang.String,int):262:262 -> f
+    86:88:byte[] fetch(java.lang.String,int):270:270 -> f
+    89:89:byte[] fetch(java.lang.String,int):271:271 -> f
+    2:11:void handleResult(android.content.Intent):76:76 -> g
+    12:15:void handleResult(android.content.Intent):77:77 -> g
+    16:21:void handleResult(android.content.Intent):78:78 -> g
+    22:51:void handleResult(android.content.Intent):79:79 -> g
+    52:55:void handleResult(android.content.Intent):80:80 -> g
+    0:11:void installApp(io.github.dadoux01.firetvupdater.Release$App):155:155 -> h
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(La/h;)V"}
+    12:19:void installApp(io.github.dadoux01.firetvupdater.Release$App):156:156 -> h
+    20:51:void installApp(io.github.dadoux01.firetvupdater.Release$App):158:158 -> h
+    52:53:void installApp(io.github.dadoux01.firetvupdater.Release$App):164:164 -> h
+    54:71:void installApp(io.github.dadoux01.firetvupdater.Release$App):165:165 -> h
+    72:73:void installApp(io.github.dadoux01.firetvupdater.Release$App):166:166 -> h
+    74:80:java.lang.String io.github.dadoux01.firetvupdater.Release.url(io.github.dadoux01.firetvupdater.Release$App):39:39 -> h
+    74:80:void installApp(io.github.dadoux01.firetvupdater.Release$App):166 -> h
+    81:82:java.lang.String io.github.dadoux01.firetvupdater.Release.url(io.github.dadoux01.firetvupdater.Release$App):39:39 -> h
+    81:82:void installApp(io.github.dadoux01.firetvupdater.Release$App):166 -> h
+      # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
+    83:99:java.lang.String io.github.dadoux01.firetvupdater.Release.url(io.github.dadoux01.firetvupdater.Release$App):39:39 -> h
+    83:99:void installApp(io.github.dadoux01.firetvupdater.Release$App):166 -> h
+    100:110:void installApp(io.github.dadoux01.firetvupdater.Release$App):167:167 -> h
+    0:4:void showActions():115:115 -> i
+    5:12:void showActions():116:116 -> i
+    13:16:void showActions():117:117 -> i
+    17:20:java.lang.String io.github.dadoux01.firetvupdater.Installer.installedCert(android.content.Context,java.lang.String):45:45 -> i
+    17:20:void showActions():118 -> i
+    21:31:int io.github.dadoux01.firetvupdater.Installer.signingFlag():63:63 -> i
+    21:31:java.lang.String io.github.dadoux01.firetvupdater.Installer.installedCert(android.content.Context,java.lang.String):45 -> i
+    21:31:void showActions():118 -> i
+    32:45:java.lang.String io.github.dadoux01.firetvupdater.Installer.installedCert(android.content.Context,java.lang.String):45:45 -> i
+    32:45:void showActions():118 -> i
+    46:53:void showActions():119:119 -> i
+    54:64:void showActions():120:120 -> i
+    65:83:void showActions():121:121 -> i
+    84:97:void showActions():123:123 -> i
+    98:107:void showActions():124:124 -> i
+    108:129:void showActions():125:125 -> i
+    130:143:void showActions():127:127 -> i
+    144:149:boolean io.github.dadoux01.firetvupdater.Verify.isNewer(long,long):50:50 -> i
+    144:149:void showActions():127 -> i
+    150:173:void showActions():128:128 -> i
+    174:201:void showActions():130:130 -> i
+    202:211:void showActions():132:132 -> i
+    212:227:void showActions():133:133 -> i
+    228:240:void showActions():135:135 -> i
+    241:251:void showActions():136:136 -> i
+    0:1:void showInstalled():84:84 -> j
+    2:14:java.lang.String io.github.dadoux01.firetvupdater.Installer.installedVersionName(android.content.Context,java.lang.String):36:36 -> j
+    2:14:void showInstalled():84 -> j
+    15:41:void showInstalled():85:85 -> j
+    0:4:void onCreate(android.os.Bundle):45:45 -> onCreate
+    5:10:void onCreate(android.os.Bundle):46:46 -> onCreate
+    11:21:void onCreate(android.os.Bundle):47:47 -> onCreate
+    22:32:void onCreate(android.os.Bundle):48:48 -> onCreate
+    33:42:void onCreate(android.os.Bundle):49:49 -> onCreate
+    43:50:void onCreate(android.os.Bundle):50:50 -> onCreate
+    51:57:void onCreate(android.os.Bundle):51:51 -> onCreate
+    58:61:void onCreate(android.os.Bundle):52:52 -> onCreate
+    0:4:void onDestroy():71:71 -> onDestroy
+    5:8:void onDestroy():72:72 -> onDestroy
+    0:2:void onNewIntent(android.content.Intent):57:57 -> onNewIntent
+    3:5:void onNewIntent(android.content.Intent):58:58 -> onNewIntent
+    6:9:void onNewIntent(android.content.Intent):59:59 -> onNewIntent
+    0:2:void onResume():64:64 -> onResume
+    3:5:void onResume():65:65 -> onResume
+    6:13:void onResume():66:66 -> onResume
+io.github.dadoux01.firetvupdater.MainActivity$$ExternalSyntheticLambda0 -> a.c:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    int a.MainActivity$$ExternalSyntheticLambda0.$r8$classId -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.MainActivity io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$1$0b4df3d1920455b2e3c87d3eeb6dda4870218dff49c6d07428a7d1c17c4db8ba$0.f$0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:7:void a.MainActivity$$ExternalSyntheticLambda0.<init>(io.github.dadoux01.firetvupdater.MainActivity,int):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    13:27:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$2():95:95 -> run
+    13:27:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+      # {"id":"com.android.tools.r8.synthesized"}
+    28:37:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$2():96:96 -> run
+    28:37:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    38:46:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$2():104:104 -> run
+    38:46:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    47:60:void a.MainActivity$$ExternalSyntheticLambda0.run():0:0 -> run
+    61:70:void io.github.dadoux01.firetvupdater.MainActivity.openAccessibility():220:220 -> run
+    61:70:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    71:78:void io.github.dadoux01.firetvupdater.MainActivity.openAccessibility():221:221 -> run
+    71:78:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    79:84:void io.github.dadoux01.firetvupdater.MainActivity.openAccessibility():223:223 -> run
+    79:84:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    85:92:void io.github.dadoux01.firetvupdater.MainActivity.lambda$showActions$5():128:128 -> run
+    85:92:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    93:100:void io.github.dadoux01.firetvupdater.MainActivity.lambda$showActions$4():125:125 -> run
+    93:100:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    101:109:void io.github.dadoux01.firetvupdater.MainActivity.lambda$showActions$3():123:123 -> run
+    101:109:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    110:111:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$9():183:183 -> run
+    110:111:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    112:120:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$9():184:184 -> run
+    112:120:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    121:129:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$7():171:171 -> run
+    121:129:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    130:134:void a.MainActivity$$ExternalSyntheticLambda0.run():0:0 -> run
+    135:154:void io.github.dadoux01.firetvupdater.MainActivity.uninstallLauncher():212:212 -> run
+    135:154:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+    155:163:void io.github.dadoux01.firetvupdater.MainActivity.uninstallLauncher():214:214 -> run
+    155:163:void a.MainActivity$$ExternalSyntheticLambda0.run():0 -> run
+io.github.dadoux01.firetvupdater.MainActivity$$ExternalSyntheticLambda10 -> a.d:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.MainActivity io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$2$f2fc34d4b6f607a2d7c310df570bb215dbcec0b5763e2dc8265402014775da2c$0.f$0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.Release$App io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$2$f2fc34d4b6f607a2d7c310df570bb215dbcec0b5763e2dc8265402014775da2c$0.f$1 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"La/h;"}
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.String io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$2$f2fc34d4b6f607a2d7c310df570bb215dbcec0b5763e2dc8265402014775da2c$0.f$2 -> c
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:9:void a.MainActivity$$ExternalSyntheticLambda10.<init>(io.github.dadoux01.firetvupdater.MainActivity,a.Release$App,java.lang.String):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Lio/github/dadoux01/firetvupdater/MainActivity;La/h;Ljava/lang/String;)V"}
+    10:22:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):168:168 -> run
+      # {"id":"com.android.tools.r8.residualsignature","signature":"()V"}
+    23:25:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):170:170 -> run
+    26:34:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):171:171 -> run
+    35:40:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):172:172 -> run
+    41:43:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):174:174 -> run
+    44:54:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):175:175 -> run
+    55:59:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):181:181 -> run
+    60:69:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):182:182 -> run
+    70:72:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):187:187 -> run
+    73:81:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$11(io.github.dadoux01.firetvupdater.Release$App,java.lang.String):188:188 -> run
+io.github.dadoux01.firetvupdater.MainActivity$$ExternalSyntheticLambda12 -> a.e:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    int a.MainActivity$$ExternalSyntheticLambda12.$r8$classId -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.MainActivity io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$3$78fea137b1c997904cbe498a03242897d58b12881bf70b9788dea8573dd40c24$1.f$0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.String io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$3$78fea137b1c997904cbe498a03242897d58b12881bf70b9788dea8573dd40c24$1.f$1 -> c
+      # {"id":"com.android.tools.r8.residualsignature","signature":"Ljava/lang/Object;"}
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:9:void a.MainActivity$$ExternalSyntheticLambda12.<init>(io.github.dadoux01.firetvupdater.MainActivity,java.lang.Object,int):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    6:9:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$0(io.github.dadoux01.firetvupdater.Release):97:97 -> run
+      # {"id":"com.android.tools.r8.residualsignature","signature":"()V"}
+    10:15:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$0(io.github.dadoux01.firetvupdater.Release):98:98 -> run
+    16:33:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$0(io.github.dadoux01.firetvupdater.Release):99:99 -> run
+    34:40:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$0(io.github.dadoux01.firetvupdater.Release):100:100 -> run
+    41:45:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$0(io.github.dadoux01.firetvupdater.Release):101:101 -> run
+    46:49:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$8(java.lang.String):176:176 -> run
+    50:71:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$8(java.lang.String):177:177 -> run
+io.github.dadoux01.firetvupdater.MainActivity$$ExternalSyntheticLambda14 -> a.f:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    int a.MainActivity$$ExternalSyntheticLambda14.$r8$classId -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.MainActivity io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$3$78fea137b1c997904cbe498a03242897d58b12881bf70b9788dea8573dd40c24$3.f$0 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.Exception io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$3$78fea137b1c997904cbe498a03242897d58b12881bf70b9788dea8573dd40c24$3.f$1 -> c
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:9:void a.MainActivity$$ExternalSyntheticLambda14.<init>(io.github.dadoux01.firetvupdater.MainActivity,java.lang.Exception,int):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    6:9:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$1(java.lang.Exception):105:105 -> run
+      # {"id":"com.android.tools.r8.residualsignature","signature":"()V"}
+    10:35:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$1(java.lang.Exception):106:106 -> run
+    36:40:void io.github.dadoux01.firetvupdater.MainActivity.lambda$check$1(java.lang.Exception):107:107 -> run
+    41:44:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$10(java.lang.Exception):189:189 -> run
+    45:71:void io.github.dadoux01.firetvupdater.MainActivity.lambda$installApp$10(java.lang.Exception):190:190 -> run
+io.github.dadoux01.firetvupdater.MainActivity$$ExternalSyntheticLambda7 -> a.g:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    io.github.dadoux01.firetvupdater.MainActivity io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$2$2ea9e16176b22c8b6d01830b5fe5083551e00d8b8f631fed12b4fa5cdaee3434$0.f$0 -> a
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.Runnable io.github.dadoux01.firetvupdater.MainActivity$$InternalSyntheticLambda$2$2ea9e16176b22c8b6d01830b5fe5083551e00d8b8f631fed12b4fa5cdaee3434$0.f$1 -> b
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:7:void a.MainActivity$$ExternalSyntheticLambda7.<init>(io.github.dadoux01.firetvupdater.MainActivity,java.lang.Runnable):0:0 -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:11:void io.github.dadoux01.firetvupdater.MainActivity.lambda$addButton$6(java.lang.Runnable,android.view.View):146:146 -> onClick
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Landroid/view/View;)V"}
+io.github.dadoux01.firetvupdater.Release -> a.i:
+# {"id":"sourceFile","fileName":"Release.java"}
+    java.lang.String tag -> a
+    io.github.dadoux01.firetvupdater.Release$App launcher -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"La/h;"}
+    io.github.dadoux01.firetvupdater.Release$App updater -> c
+      # {"id":"com.android.tools.r8.residualsignature","signature":"La/h;"}
+    0:2:void <init>(java.lang.String,io.github.dadoux01.firetvupdater.Release$App,io.github.dadoux01.firetvupdater.Release$App):32:32 -> <init>
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/String;La/h;La/h;)V"}
+    3:4:void <init>(java.lang.String,io.github.dadoux01.firetvupdater.Release$App,io.github.dadoux01.firetvupdater.Release$App):33:33 -> <init>
+    5:6:void <init>(java.lang.String,io.github.dadoux01.firetvupdater.Release$App,io.github.dadoux01.firetvupdater.Release$App):34:34 -> <init>
+    7:9:void <init>(java.lang.String,io.github.dadoux01.firetvupdater.Release$App,io.github.dadoux01.firetvupdater.Release$App):35:35 -> <init>
+    0:5:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):51:51 -> a
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Lorg/json/JSONObject;)La/h;"}
+    6:19:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):52:52 -> a
+    20:29:boolean io.github.dadoux01.firetvupdater.Verify.safeFileName(java.lang.String):60:60 -> a
+    20:29:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):53 -> a
+    30:37:boolean io.github.dadoux01.firetvupdater.Verify.isSha256(java.lang.String):45:45 -> a
+    30:37:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):54 -> a
+    38:63:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):55:55 -> a
+    64:75:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):54:54 -> a
+    76:95:io.github.dadoux01.firetvupdater.Release$App app(org.json.JSONObject):53:53 -> a
+    0:4:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):43:43 -> b
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/String;)La/i;"}
+    5:10:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):44:44 -> b
+    11:18:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):45:45 -> b
+    19:24:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):46:46 -> b
+    25:58:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):47:47 -> b
+    59:70:io.github.dadoux01.firetvupdater.Release parse(java.lang.String):45:45 -> b
+io.github.dadoux01.firetvupdater.Release$App -> a.h:
+# {"id":"sourceFile","fileName":"Release.java"}
+    java.lang.String packageName -> a
+    long versionCode -> b
+    java.lang.String file -> c
+    java.lang.String sha256 -> d
+    0:2:void <init>(java.lang.String,long,java.lang.String,java.lang.String,java.lang.String):19:19 -> <init>
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V"}
+    3:4:void <init>(java.lang.String,long,java.lang.String,java.lang.String,java.lang.String):20:20 -> <init>
+    5:6:void <init>(java.lang.String,long,java.lang.String,java.lang.String,java.lang.String):21:21 -> <init>
+    7:8:void <init>(java.lang.String,long,java.lang.String,java.lang.String,java.lang.String):23:23 -> <init>
+    9:11:void <init>(java.lang.String,long,java.lang.String,java.lang.String,java.lang.String):24:24 -> <init>

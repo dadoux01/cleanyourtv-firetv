@@ -11,8 +11,8 @@ android {
         applicationId providers.gradleProperty('launcherApplicationId').getOrElse('com.gathin.tvhome')
         minSdk 26
         targetSdk 34
-        versionCode 11
-        versionName '3.1-firetv.1.1'
+        versionCode 12
+        versionName '3.1-firetv.1.2'
     }
 
     // Published builds (the GitHub release) are signed with the project's own key, given through these variables by

@@ -1,0 +1,97 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:2:1-40:12
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:2:1-40:12
+	package
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:7:5-83
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:7:22-80
+uses-permission#android.permission.REQUEST_DELETE_PACKAGES
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:9:5-82
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:9:22-79
+uses-feature#android.software.leanback
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:5-87
+	android:required
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:60-84
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:19-59
+uses-feature#android.hardware.touchscreen
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:5-90
+	android:required
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:63-87
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:19-62
+queries
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:14:5-16:15
+package#com.gathin.tvhome
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:15:9-53
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:15:18-50
+application
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:18:5-39:19
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:18:5-39:19
+	android:extractNativeLibs
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	android:supportsRtl
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:23:9-35
+	android:label
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:22:9-41
+	android:icon
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:21:9-43
+	android:allowBackup
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:19:9-36
+	android:banner
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:20:9-42
+	android:theme
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:24:9-71
+activity#io.github.dadoux01.firetvupdater.MainActivity
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:26:9-35:20
+	android:launchMode
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:29:13-44
+	android:exported
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:27:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:30:13-34:29
+action#android.intent.action.MAIN
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:32:27-74
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:33:17-86
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:33:27-83
+receiver#io.github.dadoux01.firetvupdater.InstallResultReceiver
+ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:9-84
+	android:exported
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:57-81
+	android:name
+		ADDED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:19-56
+uses-sdk
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml

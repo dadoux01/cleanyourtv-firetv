@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.github.dadoux01.firetvupdater.VerifyTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-28T16:03:17" hostname="michael-fedora" time="0.006">
+  <properties/>
+  <testcase name="sha256OfKnownBytes" classname="io.github.dadoux01.firetvupdater.VerifyTest" time="0.003"/>
+  <testcase name="onlyHttpsGithubAddresses" classname="io.github.dadoux01.firetvupdater.VerifyTest" time="0.001"/>
+  <testcase name="pinnedCertificateIsASha256" classname="io.github.dadoux01.firetvupdater.VerifyTest" time="0.0"/>
+  <testcase name="onlyNewerVersionsAreOffered" classname="io.github.dadoux01.firetvupdater.VerifyTest" time="0.001"/>
+  <testcase name="fileNamesArePlainApkNames" classname="io.github.dadoux01.firetvupdater.VerifyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

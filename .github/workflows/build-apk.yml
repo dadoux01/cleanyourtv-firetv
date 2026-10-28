@@ -1,7 +1,8 @@
-# Tests and builds the launcher on every push and pull request. For a tag like v1.1.0 it also signs the APK with the
-# project's release key (repository secrets) and publishes it with its SHA-256 as a GitHub release. After a release,
-# add its "tag sha256" line to launcher/RELEASES.txt: `firetv.py install-launcher --release` only installs a build
-# listed there, with the checksum from the repository rather than from the release.
+# Tests and builds the launcher and the updater on every push and pull request. For a tag like v1.2.0 it also signs
+# both with the project's release key (repository secrets) and publishes them, their SHA-256 and the update.json the
+# updater reads, as a GitHub release. After a release, add its lines to launcher/RELEASES.txt: `firetv.py
+# install-launcher --release` and `install-updater` only install a build listed there, with the checksum from the
+# repository rather than from the release.
 name: build-apk
 on:
   push:
@@ -45,16 +46,22 @@ jobs:
           FIRETV_KEY_ALIAS: ${{ secrets.FIRETV_KEY_ALIAS }}
           FIRETV_KEY_PASSWORD: ${{ secrets.FIRETV_KEY_PASSWORD }}
         run: ./gradlew assembleRelease --no-daemon
-      - name: Name the APK and write its checksum
+      - name: Name the APKs, write their checksums and update.json
         run: |
           rm -f "$RUNNER_TEMP/release.p12"
           cp launcher/app/build/outputs/apk/release/app-release.apk cleanyourtv-firetv-launcher.apk
+          cp launcher/updater/build/outputs/apk/release/updater-release.apk cleanyourtv-firetv-updater.apk
           sha256sum cleanyourtv-firetv-launcher.apk > cleanyourtv-firetv-launcher.apk.sha256
-          cat cleanyourtv-firetv-launcher.apk.sha256
+          sha256sum cleanyourtv-firetv-updater.apk > cleanyourtv-firetv-updater.apk.sha256
+          TAG="${GITHUB_REF_NAME}"; case "$TAG" in v*.*.*) ;; *) TAG=v0.0.0 ;; esac
+          python3 launcher/release-manifest.py "$TAG" launcher=cleanyourtv-firetv-launcher.apk updater=cleanyourtv-firetv-updater.apk > update.json
+          cat cleanyourtv-firetv-*.sha256 update.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: launcher-apk
-          path: cleanyourtv-firetv-launcher.apk*
+          path: |
+            cleanyourtv-firetv-*.apk*
+            update.json
 
   release:
     needs: build
@@ -70,5 +77,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "$GITHUB_REF_NAME" cleanyourtv-firetv-launcher.apk cleanyourtv-firetv-launcher.apk.sha256 \
+            cleanyourtv-firetv-updater.apk cleanyourtv-firetv-updater.apk.sha256 update.json \
             --repo "$GITHUB_REPOSITORY" --title "$GITHUB_REF_NAME" \
-            --notes "Launcher APK for Fire TV, signed with the project key. SHA-256: $(cut -d' ' -f1 cleanyourtv-firetv-launcher.apk.sha256)"
+            --notes "Launcher and updater APKs for Fire TV, signed with the project key (certificate SHA-256 fb0852ad1fdc05de1298c11d66fba0f51a789bd3b8a3a204f841434bc9515944). Launcher SHA-256: $(cut -d' ' -f1 cleanyourtv-firetv-launcher.apk.sha256). Updater SHA-256: $(cut -d' ' -f1 cleanyourtv-firetv-updater.apk.sha256)."

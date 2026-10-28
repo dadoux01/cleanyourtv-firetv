@@ -1,0 +1,23 @@
+<dependencies>
+  <compile
+      roots=":@@:updater::release,junit:junit:4.13.2@jar,org.hamcrest:hamcrest-core:1.3@jar">
+    <dependency
+        name=":@@:updater::release"
+        simpleName="artifacts::updater"/>
+    <dependency
+        name="junit:junit:4.13.2@jar"
+        simpleName="junit:junit"/>
+    <dependency
+        name="org.hamcrest:hamcrest-core:1.3@jar"
+        simpleName="org.hamcrest:hamcrest-core"/>
+  </compile>
+  <package
+      roots="junit:junit:4.13.2@jar,org.hamcrest:hamcrest-core:1.3@jar">
+    <dependency
+        name="junit:junit:4.13.2@jar"
+        simpleName="junit:junit"/>
+    <dependency
+        name="org.hamcrest:hamcrest-core:1.3@jar"
+        simpleName="org.hamcrest:hamcrest-core"/>
+  </package>
+</dependencies>

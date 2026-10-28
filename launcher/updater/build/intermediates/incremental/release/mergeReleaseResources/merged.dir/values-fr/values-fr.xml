@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility">Faire ouvrir le launcher par le bouton Accueil</string>
+    <string name="accessibility_hint">Dans la liste, ouvrez « Bouton Accueil » et activez-le.</string>
+    <string name="allow_unknown">Autorisez cette appli à installer des applications, puis revenez : Paramètres > Ma Fire TV > Options pour les développeurs > Installer des applications inconnues > CleanYourTV Updater.</string>
+    <string name="app_name">CleanYourTV Updater</string>
+    <string name="bad_file">Téléchargement refusé : %1$s. Rien n’a été installé.</string>
+    <string name="check">Rechercher des mises à jour</string>
+    <string name="checking">Interrogation de GitHub…</string>
+    <string name="confirm">Confirmez l’installation sur l’écran suivant.</string>
+    <string name="downloading">Téléchargement de %1$s…</string>
+    <string name="install_failed">Échec de l’installation : %1$s</string>
+    <string name="install_launcher">Installer le launcher</string>
+    <string name="installed_ok">Installé. Appuyez sur Accueil : le launcher démarre.</string>
+    <string name="installed_version">Launcher installé : %1$s</string>
+    <string name="latest_version">Dernière version publiée : %1$s</string>
+    <string name="network_error">GitHub est injoignable : %1$s. Vérifiez la connexion Internet.</string>
+    <string name="not_installed">Launcher non installé</string>
+    <string name="other_signature">Le launcher de cette TV a été compilé ailleurs et signé avec une autre clé : il ne peut pas être mis à jour tel quel. Désinstallez-le, puis installez la version publiée.</string>
+    <string name="title">Mises à jour</string>
+    <string name="uninstall_other">Désinstaller le launcher actuel</string>
+    <string name="up_to_date">Tout est à jour.</string>
+    <string name="update_launcher">Mettre à jour le launcher en %1$s</string>
+    <string name="update_self">Mettre à jour cet updater en %1$s</string>
+    <string name="verifying">Vérification du fichier et de sa signature…</string>
+</resources>

@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+}
+
+// The updater: a separate, small app that installs and updates the launcher (and itself) from the GitHub releases,
+// so the launcher itself never needs the INTERNET permission.
+android {
+    namespace 'io.github.dadoux01.firetvupdater'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'io.github.dadoux01.firetvupdater'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Same key as the launcher (see app/build.gradle): CI signs published builds with it, local builds fall back to
+    // the debug key.
+    def releaseKeystore = System.getenv('FIRETV_KEYSTORE')
+    signingConfigs {
+        if (releaseKeystore) {
+            release {
+                storeFile file(releaseKeystore)
+                storePassword System.getenv('FIRETV_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('FIRETV_KEY_ALIAS')
+                keyPassword System.getenv('FIRETV_KEY_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig releaseKeystore ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}

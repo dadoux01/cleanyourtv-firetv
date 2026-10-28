@@ -10,9 +10,10 @@ Point d'entrée Fire TV pour Windows, macOS et Linux (Python 3.8+, bibliothèque
     python3 firetv.py theme [FOLDER]         push a theme (default: themes/firetv); theme --reset removes it
     python3 firetv.py home-redirect          make the Home button open the launcher (and set its screensaver)
     python3 firetv.py uninstall-launcher     remove the launcher (the only thing this project ever uninstalls)
+    python3 firetv.py install-updater        install the updater app, which updates the launcher from the TV itself
 
 French names work too: installer, trouver, sonde, sauvegarde, appliquer, verifier, corriger, restaurer, fermer, etat,
-preparer-launcher, installer-launcher, accueil. The host can also come from TV_HOST.
+preparer-launcher, installer-launcher, installer-updater, accueil. The host can also come from TV_HOST.
 Messages follow the system language (French or English); FIRETV_LANG=en|fr forces it.
 System packages are never uninstalled: they are disabled for user 0 (pm disable-user) and `restore` undoes it.
 Exit codes: 0 done, 1 failed or drift (check), 2 the TV could not be reached or the command line was refused.
@@ -43,8 +44,11 @@ LAUNCHER_PKG = "com.gathin.tvhome"
 HOME_SERVICE = LAUNCHER_PKG + "/.HomeKeyService"
 REPO = "dadoux01/cleanyourtv-firetv"
 APK_NAME = "cleanyourtv-firetv-launcher.apk"
-# Published launcher builds and their SHA-256, one "tag sha256" per line. The checksum comes from this file in the
-# clone, not from the release itself, so a release that was tampered with after the fact is refused.
+UPDATER_APK = "cleanyourtv-firetv-updater.apk"
+UPDATER_PKG = "io.github.dadoux01.firetvupdater"
+# Published builds and their SHA-256, one "tag sha256 [file]" per line (file defaults to the launcher's APK). The
+# checksum comes from this file in the clone, not from the release itself, so a release that was tampered with after
+# the fact is refused.
 RELEASES_FILE = ROOT / "launcher" / "RELEASES.txt"
 CMDLINE_TOOLS = "11076708"
 # SHA-256 of Google's command-line tools archive, by host OS (checked before anything is unpacked).
@@ -70,7 +74,7 @@ ALIASES = {
     "installer": "setup", "trouver": "discover", "sonde": "probe", "sauvegarde": "backup", "appliquer": "apply",
     "verifier": "check", "corriger": "fix", "restaurer": "restore", "fermer": "close", "etat": "status",
     "preparer-launcher": "setup-launcher", "installer-launcher": "install-launcher", "accueil": "home-redirect",
-    "desinstaller-launcher": "uninstall-launcher",
+    "desinstaller-launcher": "uninstall-launcher", "installer-updater": "install-updater",
 }
 
 # ---------------------------------------------------------------- messages
@@ -137,6 +141,8 @@ MESSAGES = {
                     "changes; turn it off under Settings > Accessibility."),
     "no_launcher_installed": ("Le launcher n'est pas installé : lancez d'abord installer-launcher.", "The launcher is not installed: run install-launcher first."),
     "uninstalled": ("Launcher désinstallé.", "Launcher uninstalled."),
+    "updater_installed": ("Updater installé : ouvrez « CleanYourTV Updater » dans « Vos applications » pour mettre à jour le launcher depuis la TV.",
+                          "Updater installed: open \"CleanYourTV Updater\" in \"Your apps\" to update the launcher from the TV."),
     "uninstall_failed": ("Désinstallation refusée ou launcher absent : {v}", "Uninstall refused, or the launcher is not installed: {v}"),
     "dl": ("Téléchargement : {u}", "Downloading: {u}"),
     "bad_sum": ("Somme de contrôle incorrecte pour {f} : fichier supprimé, rien n'a été extrait ni installé.",
@@ -853,23 +859,23 @@ def build_launcher(java, android):
     return launcher / "app" / "build" / "outputs" / "apk" / "release" / "app-release.apk"
 
 
-def published_releases(path=None):
-    """[(tag, sha256)] from launcher/RELEASES.txt, oldest first; malformed lines are ignored."""
+def published_releases(path=None, file_name=APK_NAME):
+    """[(tag, sha256)] for one APK from launcher/RELEASES.txt, oldest first; malformed lines are ignored."""
     path = path or RELEASES_FILE
     out = []
     if not Path(path).exists():
         return out
     for line in Path(path).read_text(encoding="utf-8").splitlines():
         line = line.split("#", 1)[0].strip()
-        m = re.fullmatch(r"(v\d+\.\d+\.\d+)\s+([0-9a-fA-F]{64})", line)
-        if m:
+        m = re.fullmatch(r"(v\d+\.\d+\.\d+)\s+([0-9a-fA-F]{64})(?:\s+([A-Za-z0-9._-]+\.apk))?", line)
+        if m and (m.group(3) or APK_NAME) == file_name:
             out.append((m.group(1), m.group(2).lower()))
     return out
 
 
-def release_apk():
-    """Download the latest build listed in launcher/RELEASES.txt and check it against the checksum listed there."""
-    releases = published_releases()
+def release_apk(file_name=APK_NAME):
+    """Download the latest build of file_name listed in launcher/RELEASES.txt and check it against the checksum there."""
+    releases = published_releases(file_name=file_name)
     if not releases:
         err("no_release")
         return None
@@ -877,8 +883,8 @@ def release_apk():
     say("release_pick", v=tag)
     dest = ROOT / "launcher" / "release"
     dest.mkdir(parents=True, exist_ok=True)
-    target = dest / APK_NAME
-    download("https://github.com/{}/releases/download/{}/{}".format(REPO, tag, APK_NAME), target)
+    target = dest / file_name
+    download("https://github.com/{}/releases/download/{}/{}".format(REPO, tag, file_name), target)
     verify(target, expected)
     return target
 
@@ -908,19 +914,37 @@ def cmd_install_launcher(args):
         err("apk_none")
         return 1
     service_was_on = LAUNCHER_PKG + "/" in tv_shell(args.host, "settings get secure enabled_accessibility_services")
-    say("apk_pushing", k=Path(apk).stat().st_size // 1024)
-    status = subprocess.call(py_tool("b64push.py", apk, "/data/local/tmp/tvhome.apk"), env=tool_env(args.host), cwd=str(ROOT))
-    if status != 0:
-        return status
-    out = tv_shell(args.host, "pm install -r /data/local/tmp/tvhome.apk; rm -f /data/local/tmp/tvhome.apk")
-    print(out, flush=True)
-    if "Success" not in out:
-        err("sig_mismatch" if "UPDATE_INCOMPATIBLE" in out else "install_failed")
+    if not push_and_install(args.host, apk):
         return 1
     say("installed")
     if service_was_on:
         enable_accessibility(args.host)
         say("service_kept")
+    return 0
+
+
+def push_and_install(host, apk):
+    """Push an APK to the TV and pm install it; False (with the reason printed) when Fire OS refuses it."""
+    say("apk_pushing", k=Path(apk).stat().st_size // 1024)
+    status = subprocess.call(py_tool("b64push.py", apk, "/data/local/tmp/firetv-install.apk"), env=tool_env(host), cwd=str(ROOT))
+    if status != 0:
+        return False
+    out = tv_shell(host, "pm install -r /data/local/tmp/firetv-install.apk; rm -f /data/local/tmp/firetv-install.apk")
+    print(out, flush=True)
+    if "Success" not in out:
+        err("sig_mismatch" if "UPDATE_INCOMPATIBLE" in out else "install_failed")
+        return False
+    return True
+
+
+def cmd_install_updater(args):
+    require_fire_tv(args.host)
+    apk = user_path(args.apk) if args.apk else release_apk(UPDATER_APK)
+    if not apk:
+        return 1
+    if not push_and_install(args.host, apk):
+        return 1
+    say("updater_installed")
     return 0
 
 
@@ -976,6 +1000,9 @@ def cmd_home_redirect(args):
         return 1
     if not enable_accessibility(args.host):
         return 1
+    # With this grant the launcher puts its Home button service back by itself (restore_key_services) after the
+    # updater replaces it, since Android switches an app's accessibility services off when the app is replaced.
+    tv_shell(args.host, "pm grant {0} android.permission.WRITE_SECURE_SETTINGS".format(LAUNCHER_PKG))
     if not args.keep_screensaver:
         tv_shell(args.host, "settings put secure screensaver_components {0}/.ClockDream; settings put secure screensaver_enabled 1".format(LAUNCHER_PKG))
     say("redirect_on")
@@ -1015,9 +1042,9 @@ COMMANDS = {
     "setup": cmd_setup, "discover": cmd_discover, "probe": cmd_probe, "backup": cmd_backup, "apply": cmd_apply,
     "check": cmd_check, "fix": cmd_fix, "restore": cmd_restore, "close": cmd_close,
     "setup-launcher": cmd_setup_launcher, "install-launcher": cmd_install_launcher,
-    "uninstall-launcher": cmd_uninstall_launcher, "home-redirect": cmd_home_redirect, "theme": cmd_theme, "status": cmd_status,
+    "uninstall-launcher": cmd_uninstall_launcher, "install-updater": cmd_install_updater, "home-redirect": cmd_home_redirect, "theme": cmd_theme, "status": cmd_status,
 }
-NEEDS_HOST = {"probe", "backup", "apply", "check", "fix", "restore", "close", "install-launcher", "uninstall-launcher",
+NEEDS_HOST = {"probe", "backup", "apply", "check", "fix", "restore", "close", "install-launcher", "uninstall-launcher", "install-updater",
               "home-redirect", "theme", "status"}
 TAKES_TARGET = {"apply", "check", "fix", "restore", "theme"}
 

@@ -144,10 +144,41 @@ class DownloadTest(unittest.TestCase):
             self.assertEqual(firetv.published_releases(f), [("v1.0.0", "a" * 64), ("v1.1.0", "b" * 64)])
             self.assertEqual(firetv.published_releases(Path(tmp) / "missing.txt"), [])
 
+    def test_published_releases_per_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            f = Path(tmp) / "RELEASES.txt"
+            f.write_text("v1.1.0 " + "a" * 64 + "\nv1.2.0 " + "b" * 64 + " cleanyourtv-firetv-launcher.apk\n"
+                         "v1.2.0 " + "c" * 64 + " cleanyourtv-firetv-updater.apk\n")
+            self.assertEqual(firetv.published_releases(f), [("v1.1.0", "a" * 64), ("v1.2.0", "b" * 64)])
+            self.assertEqual(firetv.published_releases(f, firetv.UPDATER_APK), [("v1.2.0", "c" * 64)])
+
     def test_repository_release_file_is_well_formed(self):
         if firetv.RELEASES_FILE.exists():
             text = [l for l in firetv.RELEASES_FILE.read_text().splitlines() if l.strip() and not l.startswith("#")]
-            self.assertEqual(len(firetv.published_releases()), len(text))
+            self.assertEqual(len(firetv.published_releases()) + len(firetv.published_releases(file_name=firetv.UPDATER_APK)),
+                             len(text))
+
+
+class ReleaseManifestTest(unittest.TestCase):
+    """launcher/release-manifest.py, which writes the update.json the updater app reads."""
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("release_manifest", str(ROOT / "launcher" / "release-manifest.py"))
+        cls.mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.mod)
+
+    def test_badging(self):
+        out = ("package: name='com.gathin.tvhome' versionCode='12' versionName='3.1-firetv.1.2' platformBuildVersionName='14'\n"
+               "sdkVersion:'26'\n")
+        self.assertEqual(self.mod.parse_badging(out), {"package": "com.gathin.tvhome", "versionCode": 12, "versionName": "3.1-firetv.1.2"})
+        with self.assertRaises(ValueError):
+            self.mod.parse_badging("nothing")
+
+    def test_tag_shape(self):
+        with self.assertRaises(ValueError):
+            self.mod.build("1.2.0", [])
+        self.assertEqual(self.mod.build("v1.2.0", []), {"tag": "v1.2.0", "apps": {}})
 
 
 class ChecksumTest(unittest.TestCase):

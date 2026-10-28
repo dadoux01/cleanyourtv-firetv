@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="incidents">
+                    <map id="0">
+                        <entry
+                            name="incidentClass"
+                            string="io.github.dadoux01.firetvupdater.InstallResultReceiver"/>
+                        <location id="secondaryLocation"
+                            file="${:updater*release*MAIN*sourceProvider*0*javaDir*0}/io/github/dadoux01/firetvupdater/InstallResultReceiver.java"
+                            line="20"
+                            column="17"
+                            startOffset="916"
+                            endLine="20"
+                            endColumn="47"
+                            endOffset="946"
+                            message="The unsafe intent is launched here."/>
+                        <location id="location"
+                            file="${:updater*release*MAIN*sourceProvider*0*javaDir*0}/io/github/dadoux01/firetvupdater/InstallResultReceiver.java"
+                            line="17"
+                            column="30"
+                            startOffset="752"
+                            endLine="17"
+                            endColumn="76"
+                            endOffset="798"/>
+                    </map>
+            </map>
+            <map id="unprotected">
+                <entry
+                    name="io.github.dadoux01.firetvupdater.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.settings.MANAGE_UNKNOWN_APP_SOURCES (used to start an activity)">
+                        <location id="0"
+                            file="${:updater*release*MAIN*sourceProvider*0*javaDir*0}/io/github/dadoux01/firetvupdater/MainActivity.java"
+                            line="158"
+                            column="31"
+                            startOffset="6177"
+                            endLine="158"
+                            endColumn="127"
+                            endOffset="6273"/>
+                    </map>
+                    <map id="android.settings.ACCESSIBILITY_SETTINGS (used to start an activity)">
+                        <location id="0"
+                            file="${:updater*release*MAIN*sourceProvider*0*javaDir*0}/io/github/dadoux01/firetvupdater/MainActivity.java"
+                            line="220"
+                            column="27"
+                            startOffset="8955"
+                            endLine="220"
+                            endColumn="77"
+                            endOffset="9005"/>
+                    </map>
+                    <map id="android.intent.action.DELETE (used to start an activity)">
+                        <location id="0"
+                            file="${:updater*release*MAIN*sourceProvider*0*javaDir*0}/io/github/dadoux01/firetvupdater/MainActivity.java"
+                            line="212"
+                            column="27"
+                            startOffset="8646"
+                            endLine="212"
+                            endColumn="103"
+                            endOffset="8722"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="drawable[banner(U)],id[title(D),installed(U),latest(U),status(U),actions(U)],layout[activity_main(U)],mipmap[ic_launcher(U)],string[app_name(U),title(U),check(U),install_launcher(U),update_launcher(U),update_self(U),accessibility(U),uninstall_other(U),installed_version(U),not_installed(U),latest_version(U),checking(U),up_to_date(U),downloading(U),verifying(U),confirm(U),installed_ok(U),install_failed(U),network_error(U),bad_file(U),other_signature(U),allow_unknown(U),accessibility_hint(U)];0^7,6^9;;;"/>
+    </map>
+
+</incidents>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 320x180 TV banner: the launcher's icon on the dark "glass" background. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="320dp" android:height="180dp" />
+            <solid android:color="#090C14" />
+        </shape>
+    </item>
+    <item android:gravity="center" android:width="96dp" android:height="96dp" android:drawable="@mipmap/ic_launcher" />
+</layer-list>

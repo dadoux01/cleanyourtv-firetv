@@ -1,0 +1,93 @@
+Marking string:latest_version:2131034125 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:bad_file:2131034116 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:network_error:2131034126 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:accessibility_hint:2131034113 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:confirm:2131034119 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:verifying:2131034134 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:other_signature:2131034128 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:checking:2131034118 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:installed_ok:2131034123 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:install_failed:2131034121 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:allow_unknown:2131034114 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:downloading:2131034120 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:uninstall_other:2131034130 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:install_launcher:2131034122 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:update_launcher:2131034132 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:update_self:2131034133 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:up_to_date:2131034131 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:accessibility:2131034112 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:check:2131034117 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:not_installed:2131034127 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking string:installed_version:2131034124 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking layout:activity_main:2130903040 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:installed:2130837505 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:latest:2130837506 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:status:2130837507 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+Marking id:actions:2130837504 reachable: referenced from /home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+@drawable/banner : reachable=true
+    @mipmap/ic_launcher
+@id/actions : reachable=true
+@id/installed : reachable=true
+@id/latest : reachable=true
+@id/status : reachable=true
+@id/title : reachable=false
+@layout/activity_main : reachable=true
+    @string/title
+@mipmap/ic_launcher : reachable=true
+@string/accessibility : reachable=true
+@string/accessibility_hint : reachable=true
+@string/allow_unknown : reachable=true
+@string/app_name : reachable=true
+@string/bad_file : reachable=true
+@string/check : reachable=true
+@string/checking : reachable=true
+@string/confirm : reachable=true
+@string/downloading : reachable=true
+@string/install_failed : reachable=true
+@string/install_launcher : reachable=true
+@string/installed_ok : reachable=true
+@string/installed_version : reachable=true
+@string/latest_version : reachable=true
+@string/network_error : reachable=true
+@string/not_installed : reachable=true
+@string/other_signature : reachable=true
+@string/title : reachable=false
+@string/uninstall_other : reachable=true
+@string/up_to_date : reachable=true
+@string/update_launcher : reachable=true
+@string/update_self : reachable=true
+@string/verifying : reachable=true
+
+The root reachable resources are:
+ drawable:banner:2130771968
+ id:actions:2130837504
+ id:installed:2130837505
+ id:latest:2130837506
+ id:status:2130837507
+ layout:activity_main:2130903040
+ mipmap:ic_launcher:2130968576
+ string:accessibility:2131034112
+ string:accessibility_hint:2131034113
+ string:allow_unknown:2131034114
+ string:app_name:2131034115
+ string:bad_file:2131034116
+ string:check:2131034117
+ string:checking:2131034118
+ string:confirm:2131034119
+ string:downloading:2131034120
+ string:install_failed:2131034121
+ string:install_launcher:2131034122
+ string:installed_ok:2131034123
+ string:installed_version:2131034124
+ string:latest_version:2131034125
+ string:network_error:2131034126
+ string:not_installed:2131034127
+ string:other_signature:2131034128
+ string:uninstall_other:2131034130
+ string:up_to_date:2131034131
+ string:update_launcher:2131034132
+ string:update_self:2131034133
+ string:verifying:2131034134
+Unused resources are: 
+ id:title:2130837508
+Resource shrinking did not work (grew from 8394 to 8466); using original instead

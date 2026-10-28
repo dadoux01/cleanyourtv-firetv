@@ -1,0 +1,2 @@
+-keep class io.github.dadoux01.firetvupdater.InstallResultReceiver { <init>(); }
+-keep class io.github.dadoux01.firetvupdater.MainActivity { <init>(); }

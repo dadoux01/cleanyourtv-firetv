@@ -74,6 +74,7 @@ codes: `0` done, `1` failed or drift (`check`), `2` the TV could not be reached 
 | `home-redirect` / `accueil` | Make the Home button open the launcher and use its clock screensaver (`--keep-screensaver` to leave yours) |
 | `theme [FOLDER]` / `theme --reset` | Push a theme (default `themes/firetv`), or remove it |
 | `uninstall-launcher` / `desinstaller-launcher` | Remove the launcher |
+| `install-updater` / `installer-updater` | Install the updater app, which updates the launcher from the TV (see below) |
 
 ## What differs from the upstream project
 
@@ -135,6 +136,29 @@ The launcher has no INTERNET permission: "Check for update" opens the Appstore, 
 Apps installed outside the Appstore (Stremio, Jellyfin, Aptoide…) show no update there. The `REQUEST_DELETE_PACKAGES`
 permission is there for the Uninstall row.
 
+## Updating from the TV (no computer)
+
+**CleanYourTV Updater** is a small separate app (24 KB) that installs and updates the launcher, and itself, straight
+from the GitHub releases. The launcher keeps having no INTERNET permission: only the updater does, and it only talks to
+GitHub, when you open it.
+
+1. **Install the updater once**, either with a computer: `python3 firetv.py --host <ip> install-updater`, or without:
+   install **Downloader** from the Amazon Appstore, allow it under *Settings > My Fire TV > Developer options > Install
+   unknown apps*, and open this address in it:
+   `https://github.com/dadoux01/cleanyourtv-firetv/releases/latest/download/cleanyourtv-firetv-updater.apk`
+2. **Open "CleanYourTV Updater"** under *Your apps*. It shows the installed and the latest version, with a button for
+   what there is to do: *Install the launcher*, *Update the launcher*, *Update this updater*. The first time, Fire OS asks
+   you to allow the updater to install apps (*Install unknown apps*); then confirm each installation on Android's screen.
+3. **Home button**: after an update the launcher turns its Home button service back on by itself, provided
+   `home-redirect` was run once from a computer. Otherwise use the updater's *Make the Home button open the launcher*
+   button, and turn on *Home button* in the list.
+
+Every download is checked twice before it is installed: its SHA-256 against `update.json`, and its signing certificate
+against the project's, which is written into the updater itself (`fb0852ad…9515944`). A file replaced on GitHub is
+refused, and Android itself refuses an update signed with another key. A launcher built on your own computer is signed
+with another key: the updater offers to uninstall it first. Debloating after an Amazon update still needs a computer
+(ADB): `check`, then `fix`.
+
 ## Languages
 
 The launcher follows the TV's language and is complete in English and French. The other languages keep upstream's
@@ -158,7 +182,8 @@ scripts in `tools/`, which print English.
 
 ## Updating and removing the project
 
-- **Update**: `git pull` (or download the ZIP again), then `python3 firetv.py --host <ip> check`.
+- **Update**: on the TV, open CleanYourTV Updater (see above). On the computer: `git pull` (or download the ZIP again),
+  then `python3 firetv.py --host <ip> check`.
 - **Remove the launcher from the TV**: `python3 firetv.py --host <ip> uninstall-launcher`.
 - **Remove the project from your computer**: delete its folder (with `tools/venv` and `backup/` inside) and
   `~/.cleanyourtv-sdk` (JDK and SDK, about 1 GB, only there if you built the launcher). Keep `~/.cleanyourtv/` for as long

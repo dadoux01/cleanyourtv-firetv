@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.2" type="incidents">
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `#090C14` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.NoActionBar`)">
+        <location
+            file="${:updater*release*MAIN*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="5"
+            column="5"
+            startOffset="195"
+            endLine="5"
+            endColumn="33"
+            endOffset="223"/>
+    </incident>
+
+    <incident
+        id="IconLauncherShape"
+        severity="warning"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="${:updater*release*MAIN*sourceProvider*0*resDir*0}/mipmap-xhdpi/ic_launcher.jpg"/>
+    </incident>
+
+</incidents>

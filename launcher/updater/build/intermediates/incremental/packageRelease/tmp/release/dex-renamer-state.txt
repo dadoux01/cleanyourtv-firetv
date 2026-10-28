@@ -1,0 +1,4 @@
+#Wed Oct 28 17:03:20 CET 2026
+base.0=/home/michael/cleanyourtv-firetv/launcher/updater/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

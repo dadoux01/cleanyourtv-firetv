@@ -1,0 +1,91 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.github.dadoux01.firetvupdater"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Reads update.json and downloads the APKs from the project's GitHub releases. -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:5:5-67
+12-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:5:22-64
+13    <!-- Installs the launcher (and updates itself); Android asks the user to confirm each install. -->
+14    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+14-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:7:5-83
+14-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:7:22-80
+15    <!-- Offers to uninstall a launcher signed with another key, which an update cannot replace. -->
+16    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+16-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:9:5-82
+16-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:9:22-79
+17
+18    <uses-feature
+18-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:5-87
+19        android:name="android.software.leanback"
+19-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:19-59
+20        android:required="false" />
+20-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:11:60-84
+21    <uses-feature
+21-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:5-90
+22        android:name="android.hardware.touchscreen"
+22-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:19-62
+23        android:required="false" />
+23-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:12:63-87
+24
+25    <queries>
+25-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:14:5-16:15
+26        <package android:name="com.gathin.tvhome" />
+26-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:15:9-53
+26-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:15:18-50
+27    </queries>
+28
+29    <application
+29-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:18:5-39:19
+30        android:allowBackup="false"
+30-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:19:9-36
+31        android:banner="@drawable/banner"
+31-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:20:9-42
+32        android:extractNativeLibs="false"
+33        android:icon="@mipmap/ic_launcher"
+33-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:21:9-43
+34        android:label="@string/app_name"
+34-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:22:9-41
+35        android:supportsRtl="true"
+35-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:23:9-35
+36        android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
+36-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:24:9-71
+37        <activity
+37-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:26:9-35:20
+38            android:name="io.github.dadoux01.firetvupdater.MainActivity"
+38-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:27:13-41
+39            android:exported="true"
+39-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:28:13-36
+40            android:launchMode="singleTask" >
+40-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:29:13-44
+41            <intent-filter>
+41-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:30:13-34:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:31:17-69
+42-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:31:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:32:17-77
+44-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:32:27-74
+45                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+45-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:33:17-86
+45-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:33:27-83
+46            </intent-filter>
+47        </activity>
+48
+49        <!-- Install results from PackageInstaller; only this app sends them (explicit PendingIntent). -->
+50        <receiver
+50-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:9-84
+51            android:name="io.github.dadoux01.firetvupdater.InstallResultReceiver"
+51-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:19-56
+52            android:exported="false" />
+52-->/home/michael/cleanyourtv-firetv/launcher/updater/src/main/AndroidManifest.xml:38:57-81
+53    </application>
+54
+55</manifest>

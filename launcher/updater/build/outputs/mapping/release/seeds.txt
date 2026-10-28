@@ -1,0 +1,4 @@
+io.github.dadoux01.firetvupdater.InstallResultReceiver
+io.github.dadoux01.firetvupdater.MainActivity
+io.github.dadoux01.firetvupdater.InstallResultReceiver: InstallResultReceiver()
+io.github.dadoux01.firetvupdater.MainActivity: MainActivity()
