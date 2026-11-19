@@ -147,4 +147,7 @@
     <string name="race_countdown_minutes">%1$d min</string>
     <string name="race_countdown_hours">%1$dh %2$dmin</string>
     <string name="race_countdown_days">%1$dj %2$dh</string>
+    <string name="clock_format_system">Système</string>
+    <string name="clock_format_12">12 heures</string>
+    <string name="clock_format_24">24 heures</string>
 </resources>

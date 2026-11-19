@@ -204,8 +204,9 @@ final class WallpaperPlayer {
     }
 
     /**
-     * Small light text under the top-right buttons, above everything else and never focusable. It sits where the
-     * top bar ends in every layout, so it does not cover the clock, the stats line or the tiles.
+     * Small light text under the top-right buttons, above everything else and never focusable. It sits a gap
+     * below the buttons' row rather than flush against it; the offset is fixed, so a taller top bar (font scale,
+     * an extra date line) eats into that gap — and it has to stay clear of the clock block and of the tiles.
      */
     private static TextView makeCaption(Context context, FrameLayout root) {
         float dp = context.getResources().getDisplayMetrics().density;
@@ -213,9 +214,14 @@ final class WallpaperPlayer {
         text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
         text.setTextColor(0xD9FFFFFF);
         text.setShadowLayer(6 * dp, 0, dp, 0xCC000000);
+        // Room for the shadow (6 dp of blur, 1 dp down) inside the view: Home's root, and the layer a fade draws
+        // through, cut everything at the view's edges, which left a hard-edged dark box around the text. The
+        // margins below take the padding back, so the text stays where it was.
+        int pad = Math.round(8 * dp);
+        text.setPadding(pad, pad, pad, pad);
         text.setSingleLine(true);
         text.setEllipsize(TextUtils.TruncateAt.END);
-        text.setMaxWidth(Math.round(520 * dp));
+        text.setMaxWidth(Math.round(520 * dp) + 2 * pad);
         text.setFocusable(false);
         text.setAlpha(0f);
         try {
@@ -225,8 +231,8 @@ final class WallpaperPlayer {
         }
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.END);
-        params.topMargin = Math.round(110 * dp);
-        params.setMarginEnd(Math.round(62 * dp));
+        params.topMargin = Math.round(137 * dp) - pad;
+        params.setMarginEnd(Math.round(62 * dp) - pad);
         root.addView(text, params);
         return text;
     }
